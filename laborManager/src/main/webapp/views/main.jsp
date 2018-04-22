@@ -63,7 +63,7 @@
 <main class="app-content">
     <div class="app-title">
         <div>
-            <h1><i class="fa fa-dashboard"></i> 劳务派遣用工管理系统</h1>
+            <h1><i class="fa fa-dashboard"></i>学生生产实习管理系统</h1>
         </div>
     </div>
     <div id = "main_content"></div>

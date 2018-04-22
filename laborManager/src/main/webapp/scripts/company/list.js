@@ -19,7 +19,14 @@ function loadCompanyData() {
                     { data: 'introduction' },
                     { data:
                             function (data,type,row,meta) {
-                                return '<a href="#" onclick="openDeleteDialog()">删除</a>';
+                                // return '<a href="#" onclick="openDeleteDialog()">删除</a>';
+                                <!-- Button trigger modal -->
+                                // return ' <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">\n' +
+                                //     '    删除\n' +
+                                //     '  </button>'
+                                return ' <a href="#" data-toggle="modal" data-target="#exampleModalCenter">\n' +
+                                    '    删除\n' +
+                                    '  </a>'
                             }
                     }
                 ]
@@ -28,15 +35,17 @@ function loadCompanyData() {
     });
 }
 
-function openDeleteDialog() {
-    BootstrapDialog.show({
-        title:"删除公司",
-        message : "确认删除？",
-        buttons : [ {
-            label : '取消',
-            action : function(dialogItself) {
-                dialogItself.close();
-            }
-        } ]
-    });
-}
+// function openDeleteDialog() {
+//     BootstrapDialog.show({
+//         title:"删除公司",
+//         message : "确认删除？",
+//         buttons : [ {
+//             label : '取消',
+//             action : function(dialogItself) {
+//                 dialogItself.close();
+//             }
+//         } ]
+//     });
+// }
+
+
