@@ -6,7 +6,22 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="be82bff2-1d61-4a66-87aa-825177a157f1" name="Default" comment="" />
+    <list default="true" id="be82bff2-1d61-4a66-87aa-825177a157f1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/graduate/laborManager/company/controller/CompanyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/graduate/laborManager/company/controller/CompanyController.java" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/resources/js/main/main.js" afterPath="$PROJECT_DIR$/src/main/webapp/resources/js/main/main.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/scripts/company/list.js" afterPath="$PROJECT_DIR$/src/main/webapp/scripts/company/list.js" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/company/list.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/company/list.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/initResoucePage.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/initResoucePage.jsp" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/views/main.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/views/main.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/classes/com/graduate/laborManager/company/controller/CompanyController.class" afterPath="$PROJECT_DIR$/target/classes/com/graduate/laborManager/company/controller/CompanyController.class" />
+      <change beforePath="$PROJECT_DIR$/target/laborManager/WEB-INF/classes/com/graduate/laborManager/company/controller/CompanyController.class" afterPath="$PROJECT_DIR$/target/laborManager/WEB-INF/classes/com/graduate/laborManager/company/controller/CompanyController.class" />
+      <change beforePath="$PROJECT_DIR$/target/laborManager/resources/js/main/main.js" afterPath="$PROJECT_DIR$/target/laborManager/resources/js/main/main.js" />
+      <change beforePath="$PROJECT_DIR$/target/laborManager/scripts/company/list.js" afterPath="$PROJECT_DIR$/target/laborManager/scripts/company/list.js" />
+      <change beforePath="$PROJECT_DIR$/target/laborManager/views/company/list.jsp" afterPath="$PROJECT_DIR$/target/laborManager/views/company/list.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/laborManager/views/initResoucePage.jsp" afterPath="$PROJECT_DIR$/target/laborManager/views/initResoucePage.jsp" />
+      <change beforePath="$PROJECT_DIR$/target/laborManager/views/main.jsp" afterPath="$PROJECT_DIR$/target/laborManager/views/main.jsp" />
+    </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -44,33 +59,27 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="list.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/company/list.js">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/main/main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="271">
-              <caret line="46" column="60" lean-forward="false" selection-start-line="46" selection-start-column="60" selection-end-line="46" selection-end-column="60" />
+            <state relative-caret-position="290">
+              <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/company/list.jsp">
+      <file leaf-file-name="main.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/views/main.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="162">
-              <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="CompanyController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/graduate/laborManager/company/controller/CompanyController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="408">
+              <caret line="87" column="70" lean-forward="false" selection-start-line="87" selection-start-column="70" selection-end-line="87" selection-end-column="70" />
+              <folding>
+                <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#aside#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -90,10 +99,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>Log4j</find>
-      <find>ThreadPoo</find>
-      <find>oracl</find>
-      <find>seat-</find>
       <find>login-form</find>
       <find>f</find>
       <find>register-form</find>
@@ -115,15 +120,22 @@
       <find>selected</find>
       <find>deleted =</find>
       <find>debu</find>
-      <find>debugger</find>
       <find>selfChoose</find>
       <find>.btn-primary</find>
       <find>flipped</find>
       <find>queryAllFloor</find>
+      <find>debugger</find>
+      <find>seri</find>
+      <find>app-sidebar__toggle</find>
+      <find>app</find>
+      <find>sidenav-toggled</find>
     </findStrings>
     <dirStrings>
       <dir>F:\MyProject\GraduateDesign\SeatManager\seatManager</dir>
     </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -133,7 +145,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/views/index/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/index/table.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/index/table2.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/home/statistics.jsp" />
@@ -174,16 +185,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/graduate/laborManager/pub/dao/IStaffDao.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/graduate/laborManager/company/service/ICompanyService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/graduate/laborManager/company/service/impl/CompanyServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/main/main.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/views/main.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/graduate/laborManager/common/base/baseDao/impl/BaseDaoImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/graduate/laborManager/common/base/baseDao/IBaseDao.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/initRequestPage.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/salary/list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/initResoucePage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/graduate/laborManager/company/controller/CompanyController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/plugins/jquery.json.min.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/views/company/list.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/scripts/company/list.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/graduate/laborManager/company/controller/CompanyController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/resources/js/main/main.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/views/main.jsp" />
       </list>
     </option>
   </component>
@@ -256,8 +268,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -346,6 +359,33 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laborManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laborManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laborManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laborManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laborManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laborManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="scripts" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -372,7 +412,43 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="agreement" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laborManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laborManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="company" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laborManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laborManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="home" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laborManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laborManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="salary" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="laborManager" type="b2602c69:ProjectViewProjectNode" />
+              <item name="laborManager" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="staff" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="laborManager" type="b2602c69:ProjectViewProjectNode" />
@@ -386,8 +462,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
-      <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -402,12 +477,12 @@
     <property name="last_opened_file_path" value="$APPLICATION_CONFIG_DIR$/jdbc-drivers/MySQL Connector/J/5.1.40/mysql-connector-java-5.1.40-bin.jar" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\views" />
-      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\views\home" />
-      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\js" />
-      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\resources\pub" />
-      <recent name="F:\MyProject\GraduateDesign\SeatManager\seatManager\src\main\webapp\views\index" />
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\js\jQuery" />
+      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\fonts\bootstrap" />
+      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\js\bootstrap" />
+      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\css\bootstrap" />
+      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\js\plugins" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="com.graduate.laborManager.pub.bean" />
@@ -415,12 +490,12 @@
       <recent name="" />
       <recent name="com.graduate.seatManager.pub.model.bean" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\fonts\bootstrap" />
-      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\js\bootstrap" />
-      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\css\bootstrap" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\js\plugins" />
-      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\java\com\graduate\laborManager" />
+      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\views" />
+      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\views\home" />
+      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\webapp\resources\js" />
+      <recent name="F:\MyProject\GraduateDesign\laborManager\laborManager\src\main\resources\pub" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -620,11 +695,12 @@
       <workItem from="1524209591447" duration="812000" />
       <workItem from="1524285491950" duration="1861000" />
       <workItem from="1524314440860" duration="26609000" />
+      <workItem from="1524385796820" duration="13190000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="198980000" />
+    <option name="totallyTimeSpent" value="212170000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -649,20 +725,21 @@
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41564417" sideWeight="0.49394855" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41474655" sideWeight="0.49394855" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.63496935" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32872504" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Persistence" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.27987897" sideWeight="0.52040815" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26399395" sideWeight="0.48086125" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2677761" sideWeight="0.48086125" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28895614" sideWeight="0.51913875" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -671,7 +748,6 @@
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3297546" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Key Promoter X" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -718,7 +794,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="81" />
+      <option name="time" value="88" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -748,10 +824,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/graduate/seatManager/user/controller/UserController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/graduate/seatManager/home/controller/HomeController.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/graduate/seatManager/index/service/impl/SeatServiceImpl.java" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/graduate/seatManager/home/service/impl/HomeService.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/graduate/seatManager/index/controller/indexCtr.java" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/home/statistics.jsp" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/index/table2.jsp" />
@@ -804,7 +876,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-76">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -974,14 +1045,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/main/main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/plugins/jquery.dataTables.min.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="476">
@@ -998,14 +1061,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/main/main.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="1710" column="17" lean-forward="true" selection-start-line="1710" selection-start-column="17" selection-end-line="1710" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="117">
@@ -1014,26 +1069,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/initRequestPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="157">
           <caret line="15" column="13" lean-forward="false" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/main.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-351">
-          <caret line="28" column="85" lean-forward="false" selection-start-line="28" selection-start-column="54" selection-end-line="28" selection-end-column="85" />
           <folding />
         </state>
       </provider>
@@ -1054,14 +1093,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/initResoucePage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/graduate/laborManager/company/service/ICompanyService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="187">
@@ -1078,35 +1109,115 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/graduate/laborManager/pub/bean/Company.java">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/aria.rnc">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="16" column="13" lean-forward="false" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        <state relative-caret-position="117">
+          <caret line="1094" column="22" lean-forward="false" selection-start-line="1094" selection-start-column="22" selection-end-line="1094" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/jQuery/jquery-3.2.1.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="3" column="7965" lean-forward="false" selection-start-line="3" selection-start-column="7965" selection-end-line="3" selection-end-column="7965" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/initResoucePage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="28" column="92" lean-forward="false" selection-start-line="28" selection-start-column="92" selection-end-line="28" selection-end-column="92" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/plugins/jquery.json.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="13" lean-forward="false" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1520">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/graduate/laborManager/company/controller/CompanyController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="703">
+          <caret line="50" column="0" lean-forward="false" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+          <folding>
+            <element signature="e#1505#1506#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/views/company/list.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="162">
-          <caret line="51" column="48" lean-forward="false" selection-start-line="51" selection-start-column="48" selection-end-line="51" selection-end-column="48" />
+        <state relative-caret-position="580">
+          <caret line="88" column="40" lean-forward="false" selection-start-line="88" selection-start-column="40" selection-end-line="88" selection-end-column="40" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/scripts/company/list.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="46" column="60" lean-forward="false" selection-start-line="46" selection-start-column="60" selection-end-line="46" selection-end-column="60" />
+        <state relative-caret-position="162">
+          <caret line="79" column="19" lean-forward="true" selection-start-line="79" selection-start-column="19" selection-end-line="79" selection-end-column="19" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/graduate/laborManager/pub/bean/Company.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="18" column="30" lean-forward="false" selection-start-line="18" selection-start-column="19" selection-end-line="18" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/js/main/main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="39" column="0" lean-forward="false" selection-start-line="39" selection-start-column="0" selection-end-line="39" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/idea.jar!/resources/html5-schema/html5/structural.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="98" column="16" lean-forward="false" selection-start-line="98" selection-start-column="16" selection-end-line="98" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/resources/css/main/main.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="109">
+          <caret line="13142" column="3" lean-forward="false" selection-start-line="13142" selection-start-column="3" selection-end-line="13142" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/views/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="87" column="70" lean-forward="false" selection-start-line="87" selection-start-column="70" selection-end-line="87" selection-end-column="70" />
+          <folding>
+            <element signature="n#header#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#aside#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#main#0;n#body#0;n#html#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

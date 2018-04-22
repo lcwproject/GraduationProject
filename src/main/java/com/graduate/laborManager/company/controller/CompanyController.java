@@ -6,6 +6,7 @@ import com.graduate.laborManager.pub.bean.Company;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -31,7 +32,7 @@ public class CompanyController {
         return "company/list";
     }
 
-    @RequestMapping("/selectList")
+    @RequestMapping(value = "/selectList",method = RequestMethod.POST)
     @ResponseBody
     public String selectList(){
         List<Company> companyList = new ArrayList<>();
@@ -44,8 +45,19 @@ public class CompanyController {
         return JSON.toJSONString(companyList);
     }
 
+    @RequestMapping(value = "/addCompany",method = RequestMethod.POST)
+    @ResponseBody
+    public String addCompany(Company company){
+        return "success";
+    }
+
     @RequestMapping("/deleteCompany")
-    public void deleteCompany(@RequestParam int id){
+    @ResponseBody
+    public String deleteCompany(@RequestParam int id){
+        if(id == 1){
+            return "error";
+        }
+        return "success";
 
     }
 
