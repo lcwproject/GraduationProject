@@ -4,6 +4,7 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.util.Date;
 import java.util.Objects;
 
 /**
@@ -17,8 +18,35 @@ import java.util.Objects;
 public class Agreement {
     private int id;
     private int cId;
+    private int sId;
     private String title;
     private String content;
+    private Date startTime;
+    private Date endTime;
+
+    public int getsId() {
+        return sId;
+    }
+
+    public void setsId(int sId) {
+        this.sId = sId;
+    }
+
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
 
     @Id
     @Column(name = "id", nullable = false)
