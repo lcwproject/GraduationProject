@@ -21,7 +21,7 @@
             <li><a href="#home">首页</a></li>
             <li><a href="#company">单位</a></li>
             <li><a href="#deal">协议</a></li>
-            <li><a href="#person">人员</a></li>
+            <li><a href="#salary">工资</a></li>
             <li><a href="register.jsp">退出</a></li>
         </ul>
     </nav>
@@ -40,35 +40,36 @@
 </section>
 
 <!-- company -->
-<section id="company" class="main style1 right dark fullscreen">
+<section id="company" class="main style2  dark fullscreen">
     <div class="content box style1">
         <header>
-            <h2 id="comp"></h2>
+            <h4 id="comp">公司名称</h4>
         </header>
-        <p id="intro" ></p>
-        <a href="#deal" class="button style2 down anchored">Next</a>
+        <p id="intro" >介绍</p>
+
+            <a href="#deal" class="button style2 down anchored">Next</a>
     </div>
 </section>
 
 <!-- deal -->
-<section id="deal" class="main style2 right dark fullscreen">
+<section id="deal" class="main style2 left dark fullscreen">
     <div class="content box style2">
         <header>
-            <h2>协议</h2>
+            <h4 >协议</h4>
         </header>
         <label>协议1</label>
         <label>协议2</label>
         <label>协议3</label>
         <label>协议4</label>
     </div>
-    <a href="#person" class="button style2 down anchored">Next</a>
+    <a href="#salary" class="button style2 down anchored">Next</a>
 </section>
 
 <!-- person -->
-<section id="person" class="main style2 left dark fullscreen">
+<section id="salary" class="main style2 left dark fullscreen">
     <div class="content box style2">
         <header>
-            <h2>工资</h2>
+            <h4>工资</h4>
         </header>
 
             <table>
@@ -106,7 +107,6 @@
                 </tr>
                 </tbody>
             </table>
-
     </div>
 </section>
 
@@ -135,5 +135,7 @@
 <script src="<%=contextPath%>/resources/js/user/util.js"></script>
 <!--[if lte IE 8]><script src="<%=contextPath%>/resources/js/user/ie/respond.min.js"></script><![endif]-->
 <script src="<%=contextPath%>/resources/js/user/main.js"></script>
+
+<script src="<%=contextPath%>/scripts/user/user.js"></script>
 </body>
 </html>
