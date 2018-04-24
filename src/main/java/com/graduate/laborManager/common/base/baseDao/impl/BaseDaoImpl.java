@@ -1,6 +1,8 @@
 package com.graduate.laborManager.common.base.baseDao.impl;
 
 import com.graduate.laborManager.common.base.baseDao.IBaseDao;
+import org.hibernate.SQLQuery;
+import org.hibernate.transform.Transformers;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
@@ -62,6 +64,19 @@ public abstract class BaseDaoImpl<E> implements IBaseDao<E> {
     public void delete(E entity) throws Exception {
         this.em.remove(this.em.merge(entity));
     }
+    public List<?> selectNativeSqlList(String sql, Map<String, Object> params, Class<?> entityClass) throws Exception {
+        Query query = this.em.createNativeQuery(sql);
+        this.setParams(query, params);
+        ((SQLQuery)query.unwrap(SQLQuery.class)).setResultTransformer(Transformers.aliasToBean(entityClass));
+        return query.getResultList();
+    }
+
+    @Transactional
+    public void createUpdateSql(String sql, Map<String, Object> params) throws Exception {
+        Query query = this.em.createNativeQuery(sql);
+        this.setParams(query, params);
+        query.executeUpdate();
+    }
 
     public List<E> selectList(String conditions, Map<String, Object> params, String orderFields) throws Exception {
         Query query = null;
@@ -87,5 +102,17 @@ public abstract class BaseDaoImpl<E> implements IBaseDao<E> {
 
     public E findById(Object id) throws Exception {
         return this.em.find(this.getEntityClass(), id);
+    }
+
+    private void setParams(Query query, Map<String, Object> params) {
+        if (params != null && params.size() > 0) {
+            Iterator var3 = params.entrySet().iterator();
+
+            while(var3.hasNext()) {
+                Map.Entry<String, Object> e = (Map.Entry)var3.next();
+                query.setParameter((String)e.getKey(), e.getValue());
+            }
+        }
+
     }
 }
