@@ -18,7 +18,7 @@
     <header class="app-header">
         <a class="app-header__logo" href="#" onclick="loadUrl('/home/homePage')">Demo</a>
         <!-- Sidebar toggle button-->
-        <a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>
+        <%--<a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>--%>
         <!-- Navbar Right Menu-->
         <ul class="app-nav">
             <!-- User Menu-->
@@ -86,6 +86,7 @@
     </main>
     <!-- Essential javascripts for application to work-->
     <script src="<%=contextPath%>/resources/js/main/main.js"></script>
+
 </body>
 </html>
 

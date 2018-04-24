@@ -13,90 +13,90 @@
     <script src="<%=contextPath%>/scripts/company/list.js"></script>
 </head>
 <body>
-    <div class="row">
-        <div class="col-md-12">
-            <div class="tile">
-                <h3 class="tile-title">公司信息表</h3>
-                <div class="tile-body">
-                    <button class="btn btn-primary" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus"></i> 新增</button>
-                    <table id="companyTable" class="table table-hover table-bordered">
-                        <thead>
-                        <tr>
-                            <th>名称</th>
-                            <th>地址</th>
-                            <th>邮箱</th>
-                            <th>热力链接</th>
-                            <th>介绍</th>
-                            <th>操作</th>
-                        </tr>
-                        </thead>
-                    </table>
-                </div>
+<div class="row">
+    <div class="col-md-12">
+        <div class="tile">
+            <h3 class="tile-title">公司信息表</h3>
+            <div class="tile-body">
+                <button class="btn btn-primary" data-toggle="modal" data-target="#addModal"><i class="fa fa-plus"></i> 新增</button>
+                <table id="companyTable" class="table table-hover table-bordered">
+                    <thead>
+                    <tr>
+                        <th>名称</th>
+                        <th>地址</th>
+                        <th>邮箱</th>
+                        <th>热力链接</th>
+                        <th>介绍</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- deleteModal -->
-    <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">删除公司</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    确认删除？
-                </div>
-                <form id = "delete_company_form">
-                    <input type="hidden" id="deleteId" />
+<!-- deleteModal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">删除公司</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                确认删除？
+            </div>
+            <form id = "delete_company_form">
+                <input type="hidden" id="deleteId" />
+            </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="deleteCompany()">确认</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- addModal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">删除公司</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id = "add_company_form">
+                    <div class="form-group">
+                        <label for="companyName" class="col-form-label">公司名称:</label>
+                        <input type="text" class="form-control" id="companyName" name="companyName">
+                    </div>
+                    <div class="form-group">
+                        <label for="address" class="col-form-label">公司地址:</label>
+                        <input type="text" class="form-control" id="address" name="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="email" class="col-form-label">公司邮箱</label>
+                        <input type="text" class="form-control" id="email" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="introduction" class="col-form-label">公司介绍:</label>
+                        <textarea  type="text" class="form-control" id="introduction" name="introduction" ></textarea>
+                    </div>
                 </form>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary" onclick="deleteCompany()">确认</button>
-                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
+                <button type="button" class="btn btn-primary" onclick="addCompany()">确认</button>
             </div>
         </div>
     </div>
-
-    <!-- addModal -->
-    <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">删除公司</h4>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id = "add_company_form">
-                        <div class="form-group">
-                            <label for="companyName" class="col-form-label">公司名称:</label>
-                            <input type="text" class="form-control" id="companyName" name="companyName">
-                        </div>
-                        <div class="form-group">
-                            <label for="address" class="col-form-label">公司地址:</label>
-                            <input type="text" class="form-control" id="address" name="address">
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="col-form-label">公司邮箱</label>
-                            <input type="text" class="form-control" id="email" name="email">
-                        </div>
-                        <div class="form-group">
-                            <label for="introduction" class="col-form-label">公司介绍:</label>
-                            <textarea  type="text" class="form-control" id="introduction" name="introduction" ></textarea>
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                    <button type="button" class="btn btn-primary" onclick="addCompany()">确认</button>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>
 
 </body>
 </html>
