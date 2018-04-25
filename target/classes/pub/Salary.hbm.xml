@@ -1,0 +1,27 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="com.graduate.laborManager.pub.bean.Salary" table="salary" schema="labormanager">
+        <id name="id">
+            <column name="id" sql-type="int(11) unsigned zerofill"/>
+        </id>
+        <property name="cId">
+            <column name="c_id" sql-type="int(11)"/>
+        </property>
+        <property name="sId">
+            <column name="s_id" sql-type="int(11)"/>
+        </property>
+        <property name="date">
+            <column name="date" sql-type="datetime" not-null="true"/>
+        </property>
+        <property name="salary">
+            <column name="salary" sql-type="decimal(10,2)" precision="10" scale="2" not-null="true"/>
+        </property>
+        <property name="tip">
+            <column name="tip" sql-type="varchar(255)" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

@@ -51,7 +51,7 @@ function deleteCompany() {
     var title = "删除公司";
     $.ajax({
         type: 'POST',
-        url: contextPath+"/company/deleteCompany",
+        url: contextPath+"/company/delete",
         data:param,
         success : function(data) {
             $('#deleteModal').modal('hide');

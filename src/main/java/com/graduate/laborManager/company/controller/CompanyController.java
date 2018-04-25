@@ -101,11 +101,10 @@ public class CompanyController {
         List<Company> companyList = new ArrayList<>();
         try {
             companyService.deleteCompany(id);
-            companyList = companyService.selectList();
         } catch (Exception e) {
             e.printStackTrace();
             return "error";
         }
-        return JSON.toJSONString(companyList);
+        return "success";
     }
 }
