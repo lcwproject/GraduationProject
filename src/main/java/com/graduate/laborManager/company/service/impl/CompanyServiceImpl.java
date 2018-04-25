@@ -28,8 +28,7 @@ public class CompanyServiceImpl implements ICompanyService {
 
     @Autowired
     ICompanyDao companyDao;
-    @Autowired
-    IAgreementDao agreementDao;
+
     @Autowired
     ISalaryDao salaryDao;
     @Autowired

@@ -54,4 +54,20 @@ public class AgreementDaoImpl extends BaseDaoImpl<Agreement> implements IAgreeme
         agreementViewList = (List<AgreementView>)this.selectNativeSqlList(sql.toString()+conditions.toString(),null,AgreementView.class);
         return agreementViewList;
     }
+
+    @Override
+    public Agreement queryAgreement(Agreement agreement) throws Exception {
+        List<Agreement> agreements = new ArrayList<>();
+        Map<String,Object> param = new HashMap<String,Object>();
+        StringBuilder conditions = new StringBuilder("where title =:title and content =:content and start_time=:start_time and end_time=:end_time");
+        param.put("title",agreement.getTitle());
+        param.put("content",agreement.getContent());
+        param.put("start_time",agreement.getStartTime());
+        param.put("end_time",agreement.getEndTime());
+        agreements = this.selectList(conditions.toString(),param,null);
+        if (agreements.size()==1){
+            return agreements.get(0);
+        }
+        return null;
+    }
 }
