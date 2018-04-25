@@ -23,12 +23,11 @@ public class CompanyDaoImpl extends BaseDaoImpl<Company> implements ICompanyDao 
     @Override
     public Company checkCompany(Company company) throws Exception {
         List<Company> companyList = new ArrayList<>();
-        StringBuilder slq = new StringBuilder("select * from COMPANY");
         Map<String,Object> param = new HashMap<String,Object>();
-        StringBuilder conditions = new StringBuilder(" where company_name=:company_name and password=:password");
+        StringBuilder conditions = new StringBuilder(" company_name=:company_name and password=:password");
         param.put("company_name",company.getCompanyName());
         param.put("password",company.getPassword());
-        companyList = this.selectList(slq.toString()+conditions.toString(),param,null);
+        companyList = this.selectList(conditions.toString(),param,null);
         if(companyList.size()!=0){
             return companyList.get(0);
         }

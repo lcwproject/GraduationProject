@@ -18,4 +18,5 @@ public interface IAgreementDao extends IBaseDao<Agreement> {
     public List<AgreementView> queryAllAgreement(int c_id)throws Exception;
     public int insertAgreement(Agreement agreement);
     public List<AgreementView> queryAlarmAgreement(int c_id)throws Exception;
+    public Agreement queryAgreement(Agreement agreement)throws Exception;
 }

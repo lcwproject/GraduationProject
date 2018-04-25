@@ -3,11 +3,10 @@ package com.graduate.laborManager.company.controller;
 import com.alibaba.fastjson.JSON;
 import com.graduate.laborManager.company.service.ICompanyService;
 import com.graduate.laborManager.pub.bean.Company;
+import com.graduate.laborManager.pub.bean.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.ArrayList;
@@ -21,15 +20,16 @@ import java.util.List;
  */
 
 @Controller
+@SessionAttributes(value={"currentCompany"},types={Company.class})
 @RequestMapping("company")
 public class CompanyController {
 
     @Autowired
     ICompanyService companyService;
 
-    @RequestMapping("/listPage")
-    public String listPage(){
-        return "company/list";
+    @RequestMapping("/listAdmin")
+    public String listCompanyPage(){
+        return "/admin/company/list";
     }
 
     @RequestMapping("/selectList")
@@ -43,6 +43,7 @@ public class CompanyController {
         }
         return JSON.toJSONString(companyList);
     }
+
     @RequestMapping("/queryByIndex")
     @ResponseBody
     public String queryByIndex(@RequestParam(value = "index") String index){
@@ -67,33 +68,37 @@ public class CompanyController {
         modelAndView = new ModelAndView("company/detail");
         return modelAndView;
     }
-    @RequestMapping("/login,method = RequestMethod.POST")
+
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
     public ModelAndView login(Company companyInfo){
         Company currentCompany = new Company();
+        ModelAndView modelAndView;
         try {
             companyInfo = companyService.checkCompany(companyInfo);
         } catch (Exception e) {
             e.printStackTrace();
-            ModelAndView modelAndView = null;
-            modelAndView = new ModelAndView("login");
+            modelAndView = new ModelAndView("registerAndLogin");
+            return modelAndView;
         }
-        ModelAndView modelAndView = null;
-        modelAndView = new ModelAndView("company/index");
+        if(companyInfo!=null){
+            modelAndView = new ModelAndView("company/main");
+            modelAndView.addObject("currentCompany",currentCompany);
+        }else {
+            modelAndView = new ModelAndView("registerAndLogin");
+        }
         return modelAndView;
     }
-    @RequestMapping("/register,method = RequestMethod.POST")
-    public ModelAndView register(Company companyInfo){
-        ModelAndView modelAndView = null;
+
+    @RequestMapping(value = "/register",method = RequestMethod.POST)
+    @ResponseBody
+    public String register(Company companyInfo){
         try {
              companyService.insertCompany(companyInfo);
-             modelAndView = new ModelAndView("login");
-             modelAndView.addObject("message","注册成功，请登录");
         } catch (Exception e) {
             e.printStackTrace();
-            modelAndView = new ModelAndView("register");
-            modelAndView.addObject("message","注册失败，用户已存在");
+            return "-1";
         }
-        return modelAndView;
+        return "0";
     }
 
     @RequestMapping("/delete")

@@ -22,7 +22,7 @@
             <li><a href="#company">单位</a></li>
             <li><a href="#deal">协议</a></li>
             <li><a href="#salary">工资</a></li>
-            <li><a href="register.jsp">退出</a></li>
+            <li><a href="../registerAndLogin.jsp">退出</a></li>
         </ul>
     </nav>
 </header>
@@ -56,9 +56,9 @@
         <header>
             <h4 >协议</h4>
         </header>
-        <label>协议1</label>
-        <label>协议2</label>
-        <label>协议3</label>
+        <label id="agreementTitle">协议1</label>
+        <label id="agreementContent">协议2</label>
+        <label id="">协议3</label>
         <label>协议4</label>
     </div>
     <a href="#salary" class="button style2 down anchored">Next</a>

@@ -9,10 +9,8 @@
 <html>
 <head>
     <title>Title</title>
-    <%@ include file="../initRequestPage.jsp"%>
-    <script src="<%=contextPath%>/scripts/company/list.js"></script>
 </head>
 <body>
-    salary
+    staff
 </body>
 </html>

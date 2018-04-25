@@ -12,10 +12,10 @@
             <column name="c_id" sql-type="int(11)"/>
         </property>
         <property name="title">
-            <column name="title" sql-type="varchar(255)" not-null="true"/>
+            <column name="title" sql-type="varchar(255)" not-null="false"/>
         </property>
         <property name="content">
-            <column name="content" sql-type="varchar(500)" length="500" not-null="true"/>
+            <column name="content" sql-type="varchar(500)" length="500" not-null="false"/>
         </property>
     </class>
 </hibernate-mapping>

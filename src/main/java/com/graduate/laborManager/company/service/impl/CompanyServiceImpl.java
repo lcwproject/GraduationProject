@@ -13,6 +13,7 @@ import com.graduate.laborManager.pub.dao.IStaffDao;
 import com.graduate.laborManager.salary.view.SalaryView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -28,8 +29,7 @@ public class CompanyServiceImpl implements ICompanyService {
 
     @Autowired
     ICompanyDao companyDao;
-    @Autowired
-    IAgreementDao agreementDao;
+
     @Autowired
     ISalaryDao salaryDao;
     @Autowired
@@ -59,6 +59,7 @@ public class CompanyServiceImpl implements ICompanyService {
         return companyDao.queryById(id);
     }
 
+    @Transactional
     @Override
     public Company insertCompany(Company company) throws Exception {
         Company new_company = new Company();

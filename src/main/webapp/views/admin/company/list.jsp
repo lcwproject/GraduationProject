@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>公司信息</title>
-    <%@ include file="../initRequestPage.jsp"%>
+    <%@ include file="../../initRequestPage.jsp"%>
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/admin/main.css">
 </head>
 <body>

@@ -74,7 +74,7 @@
 
 </main>
 <!-- Essential javascripts for application to work-->
-<script src="<%=contextPath%>/resources/js/main/main.js"></script>
+<script src="<%=contextPath%>/resources/js/main/mainCompant.js"></script>
 
 </body>
 </html>

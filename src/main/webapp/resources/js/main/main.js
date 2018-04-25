@@ -18,7 +18,7 @@ $(document).ready(function() {
     $("[data-toggle='treeview.'].is-expanded").parent().toggleClass('is-expanded');
     //Activate bootstrip tooltips
     $("[data-toggle='tooltip']").tooltip();
-    loadUrl("/home/homePage")
+    
 });
 // (function() {
 //     "use strict";

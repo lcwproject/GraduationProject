@@ -7,8 +7,8 @@
   <!--welcome pages-->
   <welcome-file-list>
    <!--<welcome-file>views/main.jsp</welcome-file>-->
-    <!--<welcome-file>views/user/register.jsp</welcome-file>-->
-    <welcome-file>views/user/index.jsp</welcome-file>
+    <welcome-file>views/registerAndLogin.jsp</welcome-file>
+    <!--<welcome-file>views/user/index.jsp</welcome-file>-->
     <!--<welcome-file>views/administration/index.jsp</welcome-file>-->
   </welcome-file-list>
 

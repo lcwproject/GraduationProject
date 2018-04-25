@@ -15,13 +15,13 @@
             <column name="s_id" sql-type="int(11)"/>
         </property>
         <property name="date">
-            <column name="date" sql-type="datetime" not-null="true"/>
+            <column name="date" sql-type="datetime" not-null="false"/>
         </property>
         <property name="salary">
-            <column name="salary" sql-type="decimal(10,2)" precision="10" scale="2" not-null="true"/>
+            <column name="salary" sql-type="decimal(10,2)" precision="10" scale="2" not-null="false"/>
         </property>
         <property name="tip">
-            <column name="tip" sql-type="varchar(255)" not-null="true"/>
+            <column name="tip" sql-type="varchar(255)" not-null="false"/>
         </property>
     </class>
 </hibernate-mapping>

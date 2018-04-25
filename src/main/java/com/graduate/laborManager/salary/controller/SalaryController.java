@@ -14,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("salary")
 public class SalaryController {
 
-    @RequestMapping("/listPage")
-    public String listPage(){
-        return "salary/list";
+    @RequestMapping("/listCompany")
+    public String listCompanyPage(){
+        return "/company/salary/list";
     }
 
 }

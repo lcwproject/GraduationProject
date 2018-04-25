@@ -9,17 +9,14 @@
 <html>
 <head>
     <title>首页</title>
-    <%@ include file="initResoucePage.jsp"%>
+    <%@ include file="../initResoucePage.jsp"%>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/main/main.css">
 </head>
 <body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header">
-        <a class="app-header__logo" href="#" onclick="loadUrl('/home/homePage')">Demo</a>
-        <!-- Sidebar toggle button-->
-        <%--<a class="app-sidebar__toggle" href="#" data-toggle="sidebar" aria-label="Hide Sidebar"></a>--%>
-        <!-- Navbar Right Menu-->
+        <a class="app-header__logo" href="#">Demo</a>
         <ul class="app-nav">
             <!-- User Menu-->
             <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
@@ -41,19 +38,13 @@
             </div>
         </div>
         <ul class="app-menu">
-            <li><a class="app-menu__item" href="#" onclick="loadUrl('/home/homePage')">
-                <i class="app-menu__icon fa fa-dashboard"></i><span class="app-menu__label">主页</span>
-            </a></li>
-            <li><a class="app-menu__item" href="#" onclick="loadUrl('/company/listPage')">
-                <i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">单位信息</span>
-            </a></li>
-            <li><a class="app-menu__item" href="#" onclick="loadUrl('/agreement/listPage')">
+            <li><a class="app-menu__item" href="#" onclick="loadUrl('/agreement/listCompany')">
                 <i class="app-menu__icon fa fa-laptop"></i><span class="app-menu__label">协议信息</span>
             </a></li>
-            <li><a class="app-menu__item" href="#" onclick="loadUrl('/staff/listPage')">
+            <li><a class="app-menu__item" href="#" onclick="loadUrl('/staff/listCompany')">
                 <i class="app-menu__icon fa fa-pie-chart"></i><span class="app-menu__label">人员信息</span>
             </a></li>
-            <li><a class="app-menu__item" href="#" onclick="loadUrl('/salary/listPage')">
+            <li><a class="app-menu__item" href="#" onclick="loadUrl('/salary/listCompany')">
                 <i class="app-menu__icon fa fa-edit"></i><span class="app-menu__label">工资信息</span>
             </a></li>
         </ul>
@@ -84,8 +75,6 @@
         </div>
 
     </main>
-    <!-- Essential javascripts for application to work-->
-    <script src="<%=contextPath%>/resources/js/main/main.js"></script>
 
 </body>
 </html>

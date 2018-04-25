@@ -6,7 +6,7 @@ $(document).ready(function(){
 
 function loadCompanyData(){
     $.ajax({
-        url:contextPath + "/userCtr/queryCompanyByUser",
+        url:contextPath + "/staff/companyInfo",
         method:"POST",
         success:function (data) {
             var company= $.parseJSON(data);
@@ -18,7 +18,7 @@ function loadCompanyData(){
 
 function loadAgreementData() {
     $.ajax({
-        url:contextPath + "/userCtr/queryAgreementByUser",
+        url:contextPath + "/staff/agreeInfo",
         method:"POST",
         success:function (data) {
             var agreement= $.parseJSON(data);
@@ -32,7 +32,7 @@ function loadAgreementData() {
 
 function loadSalaryData() {
     $.ajax({
-        url:contextPath + "/userCtr/querySalaryByUser",
+        url:contextPath + "/userCtr/salaryInfo",
         method:"POST",
         success:function (data) {
             var salaryList = $.parseJSON(data);

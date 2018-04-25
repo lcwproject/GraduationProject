@@ -9,7 +9,7 @@
 <html>
 <head>
     <title>注册登录</title>
-    <%@ include file="../initResoucePage.jsp"%>
+    <%@ include file="initResoucePage.jsp"%>
     <link rel="stylesheet" type="text/css"  href="<%=contextPath%>/resources/css/user/mainrl.css" />
 </head>
 <body class="loading">
@@ -65,9 +65,9 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="form-group">
+                    <div class="form-group" id="userRegisterForm" >
                         <label for="urname" class="col-form-label">用户名:</label>
-                        <input type="text" class="form-control" id="urname">
+                        <input type="text" class="form-control" id="urname" >
                     </div>
                     <div class="form-group">
                         <label for="urpassword" class="col-form-label">密码:</label>
@@ -85,7 +85,7 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">注册</button>
+                <button type="button" class="btn btn-primary" onclick="userRegister()">注册</button>
             </div>
         </div>
     </div>
@@ -101,7 +101,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="userLoginForm" action="<%=contextPath%>/staff/checkStaff" method="post">
                     <div class="form-group">
                         <label for="ulname" class="col-form-label">用户名:</label>
                         <input type="text" class="form-control" id="ulname">
@@ -114,12 +114,11 @@
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">登录</button>
+                <button type="button" class="btn btn-primary" onclick="userLogin()">登录</button>
             </div>
         </div>
     </div>
 </div>
-
 <%--单位注册--%>
 <div class="modal fade" id="companyRegisterModal" tabindex="-1" role="dialog" aria-labelledby="companyRegisterModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -131,20 +130,32 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id = "companyRegisterForm">
                     <div class="form-group">
-                        <label for="crname" class="col-form-label">用户名:</label>
-                        <input type="text" class="form-control" id="crname">
+                        <label for="crname" class="col-form-label">公司名:</label>
+                        <input type="text" class="form-control" id="crname" name="companyName">
                     </div>
                     <div class="form-group">
                         <label for="crpassword" class="col-form-label">密码:</label>
-                        <input type="password" class="form-control" id="crpassword">
+                        <input type="password" class="form-control" id="crpassword" name="password">
+                    </div>
+                    <div class="form-group">
+                        <label for="craddress" class="col-form-label">地址:</label>
+                        <input type="text" class="form-control" id="craddress" name="address">
+                    </div>
+                    <div class="form-group">
+                        <label for="cremail" class="col-form-label">邮箱:</label>
+                        <input type="text" class="form-control" id="cremail" name="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="crintroduction" class="col-form-label">介绍:</label>
+                        <textarea type="text" class="form-control" id="crintroduction" name="introduction" ></textarea>
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">注册</button>
+                <button type="button" class="btn btn-primary" onclick="companyRegister()">注册</button>
             </div>
         </div>
     </div>
@@ -160,25 +171,24 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="companyLoginForm" action="<%=contextPath%>/company/login" method="post">
                     <div class="form-group">
-                        <label for="clname" class="col-form-label">用户名:</label>
-                        <input type="text" class="form-control" id="clname">
+                        <label for="clname" class="col-form-label">公司名:</label>
+                        <input type="text" class="form-control" id="clname" name="companyName">
                     </div>
                     <div class="form-group">
                         <label for="clpassword" class="col-form-label">密码:</label>
-                        <input type="password" class="form-control" id="clpassword">
+                        <input type="password" class="form-control" id="clpassword" name="password">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">登录</button>
+                <button type="button" class="btn btn-primary" onclick="companyLogin()">登录</button>
             </div>
         </div>
     </div>
 </div>
-
 <%--管理员登录--%>
 <div class="modal fade" id="adminLoginModal" tabindex="-1" role="dialog" aria-labelledby="adminLoginModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
@@ -208,7 +218,8 @@
         </div>
     </div>
 </div>
-<!--[if lte IE 8]><script src="<%=contextPath%>/resources/js/user/ie/respond.min.js"></script><![endif]-->
+
+<!--[if lte IE 8]--><script src="<%=contextPath%>/resources/js/user/ie/respond.min.js"></script><!--[endif]-->
 <script>
     window.onload = function() {
         document.body.className = '';
@@ -220,6 +231,6 @@
         document.body.scrollTop = 0;
     }
 </script>
-
+<script src="<%=contextPath%>/scripts/registerAndLogin.js"></script>
 </body>
 </html>
