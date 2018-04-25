@@ -170,7 +170,7 @@ sup {
 }
 
 a {
-  color: #009688;
+  color: #9999cc;
   text-decoration: none;
   background-color: transparent;
   -webkit-text-decoration-skip: objects;
@@ -2524,14 +2524,14 @@ fieldset:disabled a.btn {
 
 .btn-primary {
   color: #FFF;
-  background-color: #009688;
-  border-color: #009688;
+  background-color: #9999cc;
+  border-color: #9999cc;
 }
 
 .btn-primary:hover {
   color: #FFF;
-  background-color: #007065;
-  border-color: #00635a;
+  background-color: #666699;
+  border-color: #666699;
 }
 
 .btn-primary:focus, .btn-primary.focus {
@@ -2541,15 +2541,15 @@ fieldset:disabled a.btn {
 
 .btn-primary.disabled, .btn-primary:disabled {
   color: #FFF;
-  background-color: #009688;
-  border-color: #009688;
+  background-color: #9999cc;
+  border-color: #9999cc;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active,
 .show > .btn-primary.dropdown-toggle {
   color: #FFF;
-  background-color: #00635a;
-  border-color: #00564e;
+  background-color: #9999cc;
+  border-color: #9999cc;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus, .btn-primary:not(:disabled):not(.disabled).active:focus,
@@ -4830,8 +4830,8 @@ tbody.collapse.show {
 .page-item.active .page-link {
   z-index: 1;
   color: #FFF;
-  background-color: #009688;
-  border-color: #009688;
+  background-color: #9999cc;
+  border-color: #9999cc;
 }
 
 .page-item.disabled .page-link {
@@ -13134,7 +13134,7 @@ be a descendant of the grid when it is being dragged.
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  background-color: #009688;
+  background-color: #666699;
   z-index: 1030;
   padding-right: 15px;
 }
@@ -13171,7 +13171,7 @@ be a descendant of the grid when it is being dragged.
             flex: 0 0 auto;
     display: block;
     width: 230px;
-    background-color: #007d71;
+    background-color: #666699;
   }
 }
 
@@ -13204,8 +13204,8 @@ be a descendant of the grid when it is being dragged.
 }
 
 .app-sidebar__toggle:focus, .app-sidebar__toggle:hover {
-  color: #fff;
-  background-color: #00635a;
+  color: #666699;
+  background-color: #9999cc;
   text-decoration: none;
 }
 
@@ -13368,7 +13368,8 @@ be a descendant of the grid when it is being dragged.
   width: 230px;
   overflow: auto;
   z-index: 10;
-  background-color: #222d32;
+  background-color: #fff;
+  color:#000;
   -webkit-box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
   -webkit-transition: left 0.3s ease,
@@ -13413,7 +13414,7 @@ be a descendant of the grid when it is being dragged.
           align-items: center;
   padding: 10px;
   margin-bottom: 20px;
-  color: #fff;
+  color: #000;
 }
 
 .app-sidebar__user-avatar {
@@ -13458,12 +13459,12 @@ be a descendant of the grid when it is being dragged.
  background-color 0.3s ease;
   transition: border-left-color 0.3s ease,
  background-color 0.3s ease;
-  color: #fff;
+  color: #000;
 }
 
 .app-menu__item.active, .app-menu__item:hover, .app-menu__item:focus {
-  background: #0d1214;
-  border-left-color: #009688;
+  background: #9999cc;
+  border-left-color: #666699;
   text-decoration: none;
   color: #fff;
 }
