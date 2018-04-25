@@ -1,12 +1,6 @@
 @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,900");
 @import url("font-awesome.min.css");
 
-/*
-	Aerial by HTML5 UP
-	html5up.net | @ajlkn
-	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-*/
-
 
 /* Reset */
 
@@ -191,6 +185,7 @@ a {
     color: inherit;
     outline: 0;
     text-decoration: none;
+
 }
 
 a:hover {
@@ -1096,6 +1091,6 @@ a:hover {
 }
 
 a:hover {
-    color: 007bff;
+    color: #007bff;
     text-decoration: underline;
 }
