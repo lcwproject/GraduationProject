@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.graduate.laborManager.pub.bean.Agreement">
+        <table name="agreement" schema="labormanager" catalog=""/>
+        <attributes>
+            <id name="agreementId">
+                <column name="agreement_id" length="32"/>
+            </id>
+            <basic name="companyId">
+                <column name="company_id" nullable="false" length="32"/>
+            </basic>
+            <basic name="staffId">
+                <column name="staff_id" nullable="false" length="32"/>
+            </basic>
+            <basic name="title">
+                <column name="title" nullable="false"/>
+            </basic>
+            <basic name="content">
+                <column name="content" nullable="false" length="500"/>
+            </basic>
+            <basic name="startTime">
+                <column name="start_time" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="endTime">
+                <column name="end_time" nullable="false" precision="-1"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

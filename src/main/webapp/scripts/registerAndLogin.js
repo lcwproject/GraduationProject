@@ -3,7 +3,27 @@ $(document).ready(function() {
 });
 
 function userRegister() {
-
+    var staff = $("#userRegisterForm").serializeObject();
+    var title = "员工注册";
+    $.ajax({
+        url:contextPath + "/staff/register",
+        data:staff,
+        method:"POST",
+        success:function(data) {
+            $('#userRegisterModal').modal('hide');
+            if(data==='0'){
+                showAlertModal(title,'注册成功,请登录',true);
+                $("#userLoginModal").modal("show");
+            }else{
+                showAlertModal(title,data,false);
+            }
+        },
+        error : function() {
+            $('#userRegisterModal').modal('hide');
+            showAlertModal(title,'系统发生错误',false);
+        },
+        dataType: 'json'
+    });
 }
 
 function companyRegister() {
@@ -14,13 +34,12 @@ function companyRegister() {
         data:company,
         method:"POST",
         success:function(data) {
-            debugger;
             $('#companyRegisterModal').modal('hide');
-            if(data.status==='-1'){
-                showAlertModal(title,'产生错误',false);
-            }else{
+            if(data==='0'){
                 showAlertModal(title,'注册成功,请登录',true);
                 $("#companyLoginModal").modal("show");
+            }else{
+                showAlertModal(title,data,false);
             }
         },
         error : function() {
@@ -33,14 +52,14 @@ function companyRegister() {
 
 function userLogin() {
     var form = $("#userLoginForm");
-    var company = form.serializeObject();
+    //var staff = form.serializeObject();
     //todo 表单校验
     form.submit();
 }
 
 function companyLogin() {
     var form = $("#companyLoginForm");
-    var company = form.serializeObject();
+    //var company = form.serializeObject();
     //todo 表单校验
     form.submit();
 }

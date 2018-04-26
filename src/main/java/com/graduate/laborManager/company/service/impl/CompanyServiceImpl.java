@@ -1,126 +1,66 @@
 package com.graduate.laborManager.company.service.impl;
 
-import com.graduate.laborManager.agreement.view.AgreementView;
 import com.graduate.laborManager.company.service.ICompanyService;
-import com.graduate.laborManager.pub.bean.Agreement;
 import com.graduate.laborManager.pub.bean.Company;
-import com.graduate.laborManager.pub.bean.Salary;
 import com.graduate.laborManager.pub.bean.Staff;
-import com.graduate.laborManager.pub.dao.IAgreementDao;
 import com.graduate.laborManager.pub.dao.ICompanyDao;
-import com.graduate.laborManager.pub.dao.ISalaryDao;
-import com.graduate.laborManager.pub.dao.IStaffDao;
-import com.graduate.laborManager.salary.view.SalaryView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @project: laborManager
  * @description: here to type description
  * @author: Dustin
- * @time: 2018/4/21 17:30
+ * @time: 2018/4/26 14:51
  */
 
 @Service
 public class CompanyServiceImpl implements ICompanyService {
 
-    @Autowired
-    ICompanyDao companyDao;
+    private ICompanyDao companyDao;
 
     @Autowired
-    ISalaryDao salaryDao;
-    @Autowired
-    IStaffDao staffDao;
-
-    @Override
-    public Company checkCompany(Company company) throws Exception {
-        return companyDao.checkCompany(company);
+    public CompanyServiceImpl(ICompanyDao companyDao) {
+        this.companyDao = companyDao;
     }
 
     @Override
-    public List<Company> selectList() throws Exception {
-        return companyDao.selectList(null,null,null);
-    }
-
-    @Override
-    public List<Company> queryByIndex(String index) throws Exception {
-        if(index!=null && !index.equals("")){
-            List<Company> companyList = companyDao.queryByIndex(index);
-            return companyList;
+    public Company Login(String email, String password) throws Exception {
+        String sql = " email = :email and password = :password ";
+        Map<String,Object> param = new HashMap<String,Object>();
+        param.put("email",email);
+        param.put("password",password);
+        List<Company> staffList = companyDao.selectList(sql,param,null);
+        if(staffList.size()>1){
+            throw new Exception("数据错误");
         }
-        return null;
-    }
-
-    @Override
-    public Company queryById(int id) throws Exception {
-        return companyDao.queryById(id);
-    }
-
-    @Transactional
-    @Override
-    public Company insertCompany(Company company) throws Exception {
-        Company new_company = new Company();
-        if(companyDao.checkCompany(company)==null){
-            new_company =companyDao.insertCompany(company);
+        if(staffList.size()<1){
+            throw new Exception("用户名或密码错误");
         }
-        return new_company;
+        return staffList.get(0);
     }
 
     @Override
-    public void deleteCompany(int company_id) throws Exception {
-        companyDao.deleteCompany(company_id);
+    public Company register(Company company) throws Exception {
+        company.setCompanyId(String.valueOf(System.currentTimeMillis()));
+        companyDao.insert(company);
+        return company;
     }
 
     @Override
-    public List<AgreementView> queryAgreement(int company_id) throws Exception {
-        return null;
+    public Boolean checkEmail(String email) throws Exception {
+        String condition = " email = :email";
+        Map<String,Object> param = new HashMap<>();
+        param.put("email",email);
+        return companyDao.selectList(condition,param,null).size() == 0;
     }
 
     @Override
-    public List<AgreementView> addAgreement(int company_id, Agreement agreement) throws Exception {
-        return null;
-    }
-
-    @Override
-    public List<AgreementView> alarmAgreement(int company_id) throws Exception {
-        return null;
-    }
-
-    @Override
-    public AgreementView queryMyAgreement(int s_id) throws Exception {
-        return null;
-    }
-
-    @Override
-    public List<Staff> listStaff(int company_id) throws Exception {
-        return null;
-    }
-
-    @Override
-    public List<Staff> addStaff(Staff staff) throws Exception {
-        return null;
-    }
-
-    @Override
-    public List<Staff> deleteStaff(int id) throws Exception {
-        return null;
-    }
-
-    @Override
-    public List<SalaryView> addSingleSalary(Salary salary) throws Exception {
-        return null;
-    }
-
-    @Override
-    public List<SalaryView> queryMySalary(int s_id) throws Exception {
-        return null;
-    }
-
-    @Override
-    public List<SalaryView> queryCompanySalary(int c_id) throws Exception {
-        return null;
+    public Company queryByStaff(Staff staff) throws Exception {
+        return companyDao.findById(staff.getCompanyId());
     }
 }

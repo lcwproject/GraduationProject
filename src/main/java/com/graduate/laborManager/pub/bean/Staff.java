@@ -10,27 +10,27 @@ import java.util.Objects;
  * @project: laborManager
  * @description: here to type description
  * @author: Dustin
- * @time: 2018/4/21 14:16
+ * @time: 2018/4/26 13:20
  */
 
 @Entity
 public class Staff {
-    private int id;
+    private String staffId;
     private String name;
     private String password;
-    private Integer phone;
+    private String phone;
     private String address;
-    private int cId;
-    private int aId;
+    private String companyId;
+    private String agreementId;
 
     @Id
-    @Column(name = "id", nullable = false)
-    public int getId() {
-        return id;
+    @Column(name = "staff_id", nullable = false, length = 32)
+    public String getStaffId() {
+        return staffId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
     }
 
     @Basic
@@ -54,12 +54,12 @@ public class Staff {
     }
 
     @Basic
-    @Column(name = "phone", nullable = true)
-    public Integer getPhone() {
+    @Column(name = "phone", nullable = true, length = 11)
+    public String getPhone() {
         return phone;
     }
 
-    public void setPhone(Integer phone) {
+    public void setPhone(String phone) {
         this.phone = phone;
     }
 
@@ -74,23 +74,23 @@ public class Staff {
     }
 
     @Basic
-    @Column(name = "c_id", nullable = false)
-    public int getcId() {
-        return cId;
+    @Column(name = "company_id", nullable = true, length = 32)
+    public String getCompanyId() {
+        return companyId;
     }
 
-    public void setcId(int cId) {
-        this.cId = cId;
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
     }
 
     @Basic
-    @Column(name = "a_id", nullable = false)
-    public int getaId() {
-        return aId;
+    @Column(name = "agreement_id", nullable = true, length = 32)
+    public String getAgreementId() {
+        return agreementId;
     }
 
-    public void setaId(int aId) {
-        this.aId = aId;
+    public void setAgreementId(String agreementId) {
+        this.agreementId = agreementId;
     }
 
     @Override
@@ -98,18 +98,18 @@ public class Staff {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Staff staff = (Staff) o;
-        return id == staff.id &&
-                cId == staff.cId &&
-                aId == staff.aId &&
+        return Objects.equals(staffId, staff.staffId) &&
                 Objects.equals(name, staff.name) &&
                 Objects.equals(password, staff.password) &&
                 Objects.equals(phone, staff.phone) &&
-                Objects.equals(address, staff.address);
+                Objects.equals(address, staff.address) &&
+                Objects.equals(companyId, staff.companyId) &&
+                Objects.equals(agreementId, staff.agreementId);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, name, password, phone, address, cId, aId);
+        return Objects.hash(staffId, name, password, phone, address, companyId, agreementId);
     }
 }

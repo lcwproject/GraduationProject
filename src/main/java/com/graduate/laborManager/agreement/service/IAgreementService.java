@@ -1,13 +1,17 @@
 package com.graduate.laborManager.agreement.service;
 
-import com.graduate.laborManager.agreement.view.AgreementView;
 import com.graduate.laborManager.pub.bean.Agreement;
+import com.graduate.laborManager.pub.bean.Staff;
 
-import java.util.List;
+/**
+ * @project: laborManager
+ * @description: here to type description
+ * @author: Dustin
+ * @time: 2018/4/26 15:33
+ */
 
 public interface IAgreementService {
-    public List<AgreementView> queryAllAgreement(int c_id) throws Exception;
-    public Agreement insertAgreement(Agreement agreement);
-    public List<AgreementView> queryAlarmAgreement(int c_id)throws Exception;
-    public Agreement queryById(int a_id)throws Exception;
+
+    public Agreement queryByStaff(Staff staff) throws Exception ;
+
 }

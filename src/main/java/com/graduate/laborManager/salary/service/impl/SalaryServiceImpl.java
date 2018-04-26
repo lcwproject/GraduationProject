@@ -1,34 +1,33 @@
 package com.graduate.laborManager.salary.service.impl;
 
 import com.graduate.laborManager.pub.bean.Salary;
+import com.graduate.laborManager.pub.bean.Staff;
 import com.graduate.laborManager.pub.dao.ISalaryDao;
 import com.graduate.laborManager.salary.service.ISalaryService;
-import com.graduate.laborManager.salary.view.SalaryView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+
+/**
+ * @project: laborManager
+ * @description: here to type description
+ * @author: Dustin
+ * @time: 2018/4/26 15:43
+ */
+
 @Service
-public class SalaryServiceImpl implements ISalaryService{
+public class SalaryServiceImpl implements ISalaryService {
+
+    private ISalaryDao salaryDao;
+
     @Autowired
-    ISalaryDao salaryDao;
-    @Override
-    public List<SalaryView> addSalary(List<SalaryView> salaryList) throws Exception {
-        return null;
+    public SalaryServiceImpl(ISalaryDao salaryDao) {
+        this.salaryDao = salaryDao;
     }
 
     @Override
-    public List<SalaryView> addSingleSalary(Salary salary) throws Exception {
-        return null;
-    }
-
-    @Override
-    public List<SalaryView> queryMySalary(int s_id, int c_id) throws Exception {
-        return salaryDao.queryMySalary(s_id,c_id);
-    }
-
-    @Override
-    public List<SalaryView> queryCompanySalary(int c_id) throws Exception {
-        return null;
+    public List<Salary> queryByStaff(Staff staff) throws Exception {
+        return salaryDao.findByStaffId(staff.getStaffId());
     }
 }

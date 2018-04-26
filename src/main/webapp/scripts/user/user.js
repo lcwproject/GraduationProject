@@ -6,35 +6,37 @@ $(document).ready(function(){
 
 function loadCompanyData(){
     $.ajax({
-        url:contextPath + "/staff/companyInfo",
+        url:contextPath + "/company/queryCompanyByStaff",
         method:"POST",
         success:function (data) {
+            debugger;
             var company= $.parseJSON(data);
-            $('#companyNameShow').val(company.companyName);
-            $('#introductionShow').val(company.introduction);
+            $('#companyNameShow').html(company.companyName);
+            $('#introductionShow').html(company.introduction);
         }
     });
 }
 
 function loadAgreementData() {
     $.ajax({
-        url:contextPath + "/staff/agreeInfo",
+        url:contextPath + "/agreement/queryAgreementByStaff",
         method:"POST",
         success:function (data) {
             var agreement= $.parseJSON(data);
-            $('#agreementTitle').val(agreement.title);
-            $('#agreementContent').val(agreement.content);
-            $('#agreementStart').val(agreement.startTime);
-            $('#agreementEnd').val(agreement.endTime);
+            $('#agreementTitle').html(agreement.title);
+            $('#agreementContent').html(agreement.content);
+            $('#agreementStart').html(agreement.startTime);
+            $('#agreementEnd').html(agreement.endTime);
         }
     });
 }
 
 function loadSalaryData() {
     $.ajax({
-        url:contextPath + "/userCtr/salaryInfo",
+        url:contextPath + "/salary/querySalaryByStaff",
         method:"POST",
         success:function (data) {
+            debugger;
             var salaryList = $.parseJSON(data);
             $('#salaryTable').DataTable({
                 data:salaryList,

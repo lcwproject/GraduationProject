@@ -4,68 +4,53 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.util.Date;
 import java.util.Objects;
 
 /**
  * @project: laborManager
  * @description: here to type description
  * @author: Dustin
- * @time: 2018/4/21 14:16
+ * @time: 2018/4/26 13:20
  */
 
 @Entity
 public class Agreement {
-    private int id;
-    private int cId;
-    private int sId;
+    private String agreementId;
+    private String companyId;
+    private String staffId;
     private String title;
     private String content;
-    private Date startTime;
-    private Date endTime;
-
-    public int getsId() {
-        return sId;
-    }
-
-    public void setsId(int sId) {
-        this.sId = sId;
-    }
-
-    public Date getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(Date startTime) {
-        this.startTime = startTime;
-    }
-
-    public Date getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(Date endTime) {
-        this.endTime = endTime;
-    }
+    private String startTime;
+    private String endTime;
 
     @Id
-    @Column(name = "id", nullable = false)
-    public int getId() {
-        return id;
+    @Column(name = "agreement_id", nullable = false, length = 32)
+    public String getAgreementId() {
+        return agreementId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setAgreementId(String agreementId) {
+        this.agreementId = agreementId;
     }
 
     @Basic
-    @Column(name = "c_id", nullable = false)
-    public int getcId() {
-        return cId;
+    @Column(name = "company_id", nullable = true, length = 32)
+    public String getCompanyId() {
+        return companyId;
     }
 
-    public void setcId(int cId) {
-        this.cId = cId;
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
+
+    @Basic
+    @Column(name = "staff_id", nullable = true, length = 32)
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
     }
 
     @Basic
@@ -88,20 +73,43 @@ public class Agreement {
         this.content = content;
     }
 
+    @Basic
+    @Column(name = "start_time", nullable = true)
+    public String getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(String startTime) {
+        this.startTime = startTime;
+    }
+
+    @Basic
+    @Column(name = "end_time", nullable = true)
+    public String getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(String endTime) {
+        this.endTime = endTime;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Agreement agreement = (Agreement) o;
-        return id == agreement.id &&
-                cId == agreement.cId &&
+        return Objects.equals(agreementId, agreement.agreementId) &&
+                Objects.equals(companyId, agreement.companyId) &&
+                Objects.equals(staffId, agreement.staffId) &&
                 Objects.equals(title, agreement.title) &&
-                Objects.equals(content, agreement.content);
+                Objects.equals(content, agreement.content) &&
+                Objects.equals(startTime, agreement.startTime) &&
+                Objects.equals(endTime, agreement.endTime);
     }
 
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, cId, title, content);
+        return Objects.hash(agreementId, companyId, staffId, title, content, startTime, endTime);
     }
 }

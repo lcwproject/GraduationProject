@@ -10,27 +10,27 @@ import java.util.Objects;
  * @project: laborManager
  * @description: here to type description
  * @author: Dustin
- * @time: 2018/4/21 14:16
+ * @time: 2018/4/26 13:20
  */
 
 @Entity
 public class Company {
-    private int id;
+    private String companyId;
     private String companyName;
     private String password;
     private String address;
     private String email;
-    private Integer hotlint;
+    private String hotlint;
     private String introduction;
 
     @Id
-    @Column(name = "id", nullable = false)
-    public int getId() {
-        return id;
+    @Column(name = "company_id", nullable = false, length = 32)
+    public String getCompanyId() {
+        return companyId;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
     }
 
     @Basic
@@ -74,12 +74,12 @@ public class Company {
     }
 
     @Basic
-    @Column(name = "hotlint", nullable = true)
-    public Integer getHotlint() {
+    @Column(name = "hotlint", nullable = true, length = 14)
+    public String getHotlint() {
         return hotlint;
     }
 
-    public void setHotlint(Integer hotlint) {
+    public void setHotlint(String hotlint) {
         this.hotlint = hotlint;
     }
 
@@ -98,7 +98,7 @@ public class Company {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Company company = (Company) o;
-        return id == company.id &&
+        return Objects.equals(companyId, company.companyId) &&
                 Objects.equals(companyName, company.companyName) &&
                 Objects.equals(password, company.password) &&
                 Objects.equals(address, company.address) &&
@@ -110,6 +110,6 @@ public class Company {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, companyName, password, address, email, hotlint, introduction);
+        return Objects.hash(companyId, companyName, password, address, email, hotlint, introduction);
     }
 }

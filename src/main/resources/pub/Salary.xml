@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.graduate.laborManager.pub.bean.Salary">
+        <table name="salary" schema="labormanager" catalog=""/>
+        <attributes>
+            <id name="salaryId">
+                <column name="salary_id" length="32"/>
+            </id>
+            <basic name="companyId">
+                <column name="company_id" nullable="false" length="32"/>
+            </basic>
+            <basic name="staffId">
+                <column name="staff_id" nullable="false" length="32"/>
+            </basic>
+            <basic name="date">
+                <column name="date" nullable="false" precision="-1"/>
+            </basic>
+            <basic name="salary">
+                <column name="salary" nullable="false" precision="2"/>
+            </basic>
+            <basic name="tip">
+                <column name="tip" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

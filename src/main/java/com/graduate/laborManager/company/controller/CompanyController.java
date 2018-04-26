@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,96 +19,67 @@ import java.util.List;
  */
 
 @Controller
-@SessionAttributes(value={"currentCompany"},types={Company.class})
+@SessionAttributes(value={"currentStaff","currentCompany"},types={Staff.class,Company.class})
 @RequestMapping("company")
 public class CompanyController {
 
+    private ICompanyService companyService;
+
     @Autowired
-    ICompanyService companyService;
+    public CompanyController(ICompanyService companyService) {
+        this.companyService = companyService;
+    }
 
     @RequestMapping("/listAdmin")
     public String listCompanyPage(){
         return "/admin/company/list";
     }
 
-    @RequestMapping("/selectList")
-    @ResponseBody
-    public String selectList(){
-        List<Company> companyList = new ArrayList<>();
+    @RequestMapping(value = "/login",method = RequestMethod.POST)
+    public ModelAndView login(Company company){
+        ModelAndView mav = null;
         try{
-            companyList = companyService.selectList();
+            Company currentCompany = companyService.Login(company.getEmail(),company.getPassword());
+            mav = new ModelAndView("/company/main");
+            mav.addObject("currentCompany",currentCompany);
         }catch (Exception e){
             e.printStackTrace();
+            mav = new ModelAndView("registerAndLogin");
         }
-        return JSON.toJSONString(companyList);
-    }
-
-    @RequestMapping("/queryByIndex")
-    @ResponseBody
-    public String queryByIndex(@RequestParam(value = "index") String index){
-        List<Company> companyList = new ArrayList<>();
-        try {
-            companyList = companyService.queryByIndex(index);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return JSON.toJSONString(companyList);
-    }
-
-    @RequestMapping("/queryById")
-    public ModelAndView queryById(@RequestParam(value = "id") int id){
-        Company company = new Company();
-        try {
-            company = companyService.queryById(id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        ModelAndView modelAndView = null;
-        modelAndView = new ModelAndView("company/detail");
-        return modelAndView;
-    }
-
-    @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public ModelAndView login(Company companyInfo){
-        Company currentCompany = new Company();
-        ModelAndView modelAndView;
-        try {
-            companyInfo = companyService.checkCompany(companyInfo);
-        } catch (Exception e) {
-            e.printStackTrace();
-            modelAndView = new ModelAndView("registerAndLogin");
-            return modelAndView;
-        }
-        if(companyInfo!=null){
-            modelAndView = new ModelAndView("company/main");
-            modelAndView.addObject("currentCompany",currentCompany);
-        }else {
-            modelAndView = new ModelAndView("registerAndLogin");
-        }
-        return modelAndView;
+        return mav;
     }
 
     @RequestMapping(value = "/register",method = RequestMethod.POST)
     @ResponseBody
-    public String register(Company companyInfo){
+    public String register(Company company){
+        Company result=null;
         try {
-             companyService.insertCompany(companyInfo);
-        } catch (Exception e) {
+            if(!companyService.checkEmail(company.getEmail())){
+                return "手机号被注册";
+            }
+            result = companyService.register(company);
+        }catch (Exception e){
             e.printStackTrace();
-            return "-1";
+            return "内部错误";
         }
-        return "0";
+        return result==null?"注册失败":"0";
     }
 
-    @RequestMapping("/delete")
-    public String delete(@RequestParam(value = "id") int id){
-        List<Company> companyList = new ArrayList<>();
-        try {
-            companyService.deleteCompany(id);
-        } catch (Exception e) {
+    @RequestMapping(value = "/queryCompanyByStaff",method = RequestMethod.POST)
+    @ResponseBody
+    public String queryCompanyByStaff(@SessionAttribute("currentStaff") Staff staff){
+        Company company = new Company();
+        try{
+            company = companyService.queryByStaff(staff);
+        }catch (Exception e){
             e.printStackTrace();
-            return "error";
         }
-        return "success";
+        if(company!=null) {
+            return JSON.toJSONString(company);
+        }else{
+            return null;
+        }
     }
+
+
 }

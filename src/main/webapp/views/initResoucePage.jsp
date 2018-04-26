@@ -19,6 +19,24 @@
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
 <body class="app sidebar-mini rtl">
+
+    <!-- alertModal -->
+    <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 id="alertModal_title" class="modal-title">操作</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div id="alertModal_info" role="alert">信息</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="<%=contextPath%>/resources/js/jQuery/jquery-3.2.1.min.js"></script>
     <!-- 可移动效果 -->
     <script src="<%=contextPath%>/resources/js/plugins/popper.min.js"></script>

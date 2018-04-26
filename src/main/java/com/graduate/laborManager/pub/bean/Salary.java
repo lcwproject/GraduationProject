@@ -5,62 +5,61 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import java.math.BigDecimal;
-import java.sql.Timestamp;
 import java.util.Objects;
 
 /**
  * @project: laborManager
  * @description: here to type description
  * @author: Dustin
- * @time: 2018/4/21 14:16
+ * @time: 2018/4/26 13:20
  */
 
 @Entity
 public class Salary {
-    private int id;
-    private int cId;
-    private int sId;
-    private Timestamp date;
+    private String salaryId;
+    private String companyId;
+    private String staffId;
+    private String date;
     private BigDecimal salary;
     private String tip;
 
     @Id
-    @Column(name = "id", nullable = false)
-    public int getId() {
-        return id;
+    @Column(name = "salary_id", nullable = false, length = 32)
+    public String getSalaryId() {
+        return salaryId;
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    @Basic
-    @Column(name = "c_id", nullable = false)
-    public int getcId() {
-        return cId;
-    }
-
-    public void setcId(int cId) {
-        this.cId = cId;
+    public void setSalaryId(String salaryId) {
+        this.salaryId = salaryId;
     }
 
     @Basic
-    @Column(name = "s_id", nullable = false)
-    public int getsId() {
-        return sId;
+    @Column(name = "company_id", nullable = true, length = 32)
+    public String getCompanyId() {
+        return companyId;
     }
 
-    public void setsId(int sId) {
-        this.sId = sId;
+    public void setCompanyId(String companyId) {
+        this.companyId = companyId;
+    }
+
+    @Basic
+    @Column(name = "staff_id", nullable = true, length = 32)
+    public String getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(String staffId) {
+        this.staffId = staffId;
     }
 
     @Basic
     @Column(name = "date", nullable = true)
-    public Timestamp getDate() {
+    public String getDate() {
         return date;
     }
 
-    public void setDate(Timestamp date) {
+    public void setDate(String date) {
         this.date = date;
     }
 
@@ -89,9 +88,9 @@ public class Salary {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Salary salary1 = (Salary) o;
-        return id == salary1.id &&
-                cId == salary1.cId &&
-                sId == salary1.sId &&
+        return Objects.equals(salaryId, salary1.salaryId) &&
+                Objects.equals(companyId, salary1.companyId) &&
+                Objects.equals(staffId, salary1.staffId) &&
                 Objects.equals(date, salary1.date) &&
                 Objects.equals(salary, salary1.salary) &&
                 Objects.equals(tip, salary1.tip);
@@ -100,6 +99,6 @@ public class Salary {
     @Override
     public int hashCode() {
 
-        return Objects.hash(id, cId, sId, date, salary, tip);
+        return Objects.hash(salaryId, companyId, staffId, date, salary, tip);
     }
 }

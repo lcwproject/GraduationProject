@@ -64,22 +64,26 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
-                    <div class="form-group" id="userRegisterForm" >
+                <form id="userRegisterForm" >
+                    <div class="form-group">
                         <label for="urname" class="col-form-label">用户名:</label>
-                        <input type="text" class="form-control" id="urname" >
+                        <input type="text" class="form-control" id="urname" name="name">
                     </div>
                     <div class="form-group">
                         <label for="urpassword" class="col-form-label">密码:</label>
-                        <input type="password" class="form-control" id="urpassword">
+                        <input type="password" class="form-control" id="urpassword" name="password">
                     </div>
                     <div class="form-group">
                         <label for="uaddress" class="col-form-label">地址:</label>
-                        <input type="text" class="form-control" id="uaddress">
+                        <input type="text" class="form-control" id="uaddress" name="address">
                     </div>
                     <div class="form-group">
                         <label for="uphone" class="col-form-label">电话:</label>
-                        <input type="text" class="form-control" id="uphone">
+                        <input type="text" class="form-control" id="uphone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="ucompanyId" class="col-form-label">公司ID:</label>
+                        <input type="text" class="form-control" id="ucompanyId" name="companyId">
                     </div>
                 </form>
             </div>
@@ -101,14 +105,14 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form id="userLoginForm" action="<%=contextPath%>/staff/checkStaff" method="post">
+                <form id="userLoginForm" action="<%=contextPath%>/staff/login" method="post">
                     <div class="form-group">
-                        <label for="ulname" class="col-form-label">用户名:</label>
-                        <input type="text" class="form-control" id="ulname">
+                        <label for="ulphone" class="col-form-label">手机号:</label>
+                        <input type="text" class="form-control" id="ulphone" name="phone">
                     </div>
                     <div class="form-group">
                         <label for="ulpassword" class="col-form-label">密码:</label>
-                        <input type="password" class="form-control" id="ulpassword">
+                        <input type="password" class="form-control" id="ulpassword" name="password">
                     </div>
                 </form>
             </div>
@@ -173,8 +177,8 @@
             <div class="modal-body">
                 <form id="companyLoginForm" action="<%=contextPath%>/company/login" method="post">
                     <div class="form-group">
-                        <label for="clname" class="col-form-label">公司名:</label>
-                        <input type="text" class="form-control" id="clname" name="companyName">
+                        <label for="clemail" class="col-form-label">公司邮箱:</label>
+                        <input type="text" class="form-control" id="clemail" name="email">
                     </div>
                     <div class="form-group">
                         <label for="clpassword" class="col-form-label">密码:</label>

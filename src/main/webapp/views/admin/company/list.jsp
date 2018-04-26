@@ -98,6 +98,6 @@
         </div>
     </div>
 
-    <script src="<%=contextPath%>/scripts/company/list.js"></script>
+    <script src="<%=contextPath%>/scripts/admin/company/list.js"></script>
 </body>
 </html>

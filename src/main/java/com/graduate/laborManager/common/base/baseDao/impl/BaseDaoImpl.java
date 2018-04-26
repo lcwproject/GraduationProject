@@ -64,6 +64,7 @@ public abstract class BaseDaoImpl<E> implements IBaseDao<E> {
     public void delete(E entity) throws Exception {
         this.em.remove(this.em.merge(entity));
     }
+
     public List<?> selectNativeSqlList(String sql, Map<String, Object> params, Class<?> entityClass) throws Exception {
         Query query = this.em.createNativeQuery(sql);
         this.setParams(query, params);

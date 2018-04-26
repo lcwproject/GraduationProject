@@ -15,6 +15,8 @@ public interface IBaseDao<E> {
 
     void delete(E entity) throws Exception;
 
+    public List<?> selectNativeSqlList(String sql, Map<String, Object> params, Class<?> entityClass) throws Exception;
+
     List<E> selectList(String conditions, Map<String, Object> params, String orderFields) throws Exception;
 
     E findById(Object id) throws Exception;

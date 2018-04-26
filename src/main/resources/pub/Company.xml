@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.graduate.laborManager.pub.bean.Company">
+        <table name="company" schema="labormanager" catalog=""/>
+        <attributes>
+            <id name="companyId">
+                <column name="company_id" length="32"/>
+            </id>
+            <basic name="companyName">
+                <column name="company_name" nullable="false" length="20"/>
+            </basic>
+            <basic name="password">
+                <column name="password" nullable="false" length="20"/>
+            </basic>
+            <basic name="address">
+                <column name="address" nullable="false" length="50"/>
+            </basic>
+            <basic name="email">
+                <column name="email" nullable="false" length="20"/>
+            </basic>
+            <basic name="hotlint">
+                <column name="hotlint" nullable="false" length="14"/>
+            </basic>
+            <basic name="introduction">
+                <column name="introduction" nullable="false"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>
