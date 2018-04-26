@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.graduate.laborManager.pub.bean.Company" %><%--
   Created by IntelliJ IDEA.
   User: Dustin
   Date: 2018/4/21
@@ -12,18 +12,25 @@
     <%@ include file="../initResoucePage.jsp"%>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/main/main.css">
+
+    <%
+        Company currentCompany = (Company) session.getAttribute("currentCompany");
+        if(currentCompany==null){
+            RequestDispatcher  rd = request.getRequestDispatcher("/views/registerAndLogin.jsp");
+            rd.forward(request,response);
+        }
+    %>
+
 </head>
 <body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header">
-        <a class="app-header__logo" href="#">Demo</a>
+        <a class="app-header__logo" href="#"></a>
         <ul class="app-nav">
             <!-- User Menu-->
             <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-cog fa-lg"></i> Settings</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-user fa-lg"></i> Profile</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+                    <li><a class="dropdown-item" href="<%=contextPath%>/allUser/logOut"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
                 </ul>
             </li>
         </ul>
@@ -33,8 +40,8 @@
     <aside class="app-sidebar">
         <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
             <div>
-                <p class="app-sidebar__user-name">DustinChen</p>
-                <p class="app-sidebar__user-designation">Full Stack Developer</p>
+                <p class="app-sidebar__user-name">${sessionScope.currentCompany.companyName}</p>
+                <p class="app-sidebar__user-designation">${sessionScope.currentCompany.companyId}</p>
             </div>
         </div>
         <ul class="app-menu">

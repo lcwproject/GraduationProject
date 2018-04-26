@@ -9,19 +9,19 @@
                 <column name="salary_id" length="32"/>
             </id>
             <basic name="companyId">
-                <column name="company_id" nullable="false" length="32"/>
+                <column name="company_id" nullable="true" length="32"/>
             </basic>
             <basic name="staffId">
-                <column name="staff_id" nullable="false" length="32"/>
+                <column name="staff_id" nullable="true" length="32"/>
             </basic>
             <basic name="date">
-                <column name="date" nullable="false" precision="-1"/>
+                <column name="date" nullable="true" precision="-1"/>
             </basic>
             <basic name="salary">
-                <column name="salary" nullable="false" precision="2"/>
+                <column name="salary" nullable="true" precision="8"/>
             </basic>
             <basic name="tip">
-                <column name="tip" nullable="false"/>
+                <column name="tip" nullable="true"/>
             </basic>
         </attributes>
     </entity>

@@ -7,10 +7,7 @@ import com.graduate.laborManager.pub.bean.Staff;
 import com.graduate.laborManager.salary.service.ISalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.SessionAttribute;
-import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +46,32 @@ public class SalaryController {
             e.printStackTrace();
         }
         return JSON.toJSONString(salaryList);
+    }
+
+    @RequestMapping("/querySalaryByCompany")
+    @ResponseBody
+    public String querySalaryByCompany(@SessionAttribute("currentCompany") Company company){
+        List<Salary> salaryList = new ArrayList<>();
+        try{
+            salaryList = salaryService.queryByCompany(company);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return JSON.toJSONString(salaryList);
+    }
+
+    @RequestMapping("/addSalary")
+    @ResponseBody
+    public String addSalary(@SessionAttribute("currentCompany") Company company,
+                            Salary salary, @RequestParam(value = "staffId") String staffId){
+        Salary result = null;
+        try{
+            result = salaryService.addSalary(salary,staffId);
+        }catch (Exception e){
+            e.printStackTrace();
+            return e.toString();
+        }
+        return result==null?"新增失败":"0";
     }
 
 }

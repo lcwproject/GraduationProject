@@ -4,14 +4,13 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import java.math.BigDecimal;
 import java.util.Objects;
 
 /**
  * @project: laborManager
  * @description: here to type description
  * @author: Dustin
- * @time: 2018/4/26 13:20
+ * @time: 2018/4/26 22:53
  */
 
 @Entity
@@ -20,7 +19,7 @@ public class Salary {
     private String companyId;
     private String staffId;
     private String date;
-    private BigDecimal salary;
+    private Integer salary;
     private String tip;
 
     @Id
@@ -64,12 +63,12 @@ public class Salary {
     }
 
     @Basic
-    @Column(name = "salary", nullable = true, precision = 2)
-    public BigDecimal getSalary() {
+    @Column(name = "salary", nullable = true)
+    public Integer getSalary() {
         return salary;
     }
 
-    public void setSalary(BigDecimal salary) {
+    public void setSalary(Integer salary) {
         this.salary = salary;
     }
 

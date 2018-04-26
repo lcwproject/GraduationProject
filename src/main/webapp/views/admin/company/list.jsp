@@ -25,7 +25,7 @@
                             <th>名称</th>
                             <th>地址</th>
                             <th>邮箱</th>
-                            <th>热力链接</th>
+                            <th>联系电话</th>
                             <th>介绍</th>
                             <th>操作</th>
                         </tr>
@@ -79,6 +79,10 @@
                         <div class="form-group">
                             <label for="address" class="col-form-label">公司地址:</label>
                             <input type="text" class="form-control" id="address" name="address">
+                        </div>
+                        <div class="form-group">
+                            <label for="address" class="col-form-label">联系电话:</label>
+                            <input type="text" class="form-control" id="hotlint" name="hotlint">
                         </div>
                         <div class="form-group">
                             <label for="email" class="col-form-label">公司邮箱</label>

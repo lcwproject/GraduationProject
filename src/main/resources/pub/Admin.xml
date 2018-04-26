@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entity-mappings xmlns="http://java.sun.com/xml/ns/persistence/orm"
+        version="2.0">
+
+    <entity class="com.graduate.laborManager.pub.bean.Admin">
+        <table name="admin" schema="labormanager" catalog=""/>
+        <attributes>
+            <id name="adminId">
+                <column name="admin_id" length="32"/>
+            </id>
+            <basic name="name">
+                <column name="name" nullable="true" length="20"/>
+            </basic>
+            <basic name="password">
+                <column name="password" nullable="true" length="32"/>
+            </basic>
+        </attributes>
+    </entity>
+</entity-mappings>

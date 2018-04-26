@@ -1,6 +1,9 @@
 package com.graduate.laborManager.staff.service.impl;
 
+import com.graduate.laborManager.pub.bean.Agreement;
+import com.graduate.laborManager.pub.bean.Company;
 import com.graduate.laborManager.pub.bean.Staff;
+import com.graduate.laborManager.pub.dao.IAgreementDao;
 import com.graduate.laborManager.pub.dao.ICompanyDao;
 import com.graduate.laborManager.pub.dao.IStaffDao;
 import com.graduate.laborManager.staff.service.IStaffService;
@@ -25,19 +28,22 @@ public class StaffServiceImpl implements IStaffService {
 
     private ICompanyDao companyDao;
 
+    private IAgreementDao agreementDao;
+
     @Autowired
-    public StaffServiceImpl(IStaffDao staffDao, ICompanyDao companyDao) {
+    public StaffServiceImpl(IStaffDao staffDao, ICompanyDao companyDao, IAgreementDao agreementDao) {
         this.staffDao = staffDao;
         this.companyDao = companyDao;
+        this.agreementDao = agreementDao;
     }
 
     @Override
     public Staff Login(String phone, String password) throws Exception {
-        String sql = " phone = :phone and password = :password ";
+        String condition = " phone = :phone and password = :password ";
         Map<String,Object> param = new HashMap<String,Object>();
         param.put("phone",phone);
         param.put("password",password);
-        List<Staff> staffList = staffDao.selectList(sql,param,null);
+        List<Staff> staffList = staffDao.selectList(condition,param,null);
         if(staffList.size()>1){
             throw new Exception("数据错误");
         }
@@ -48,16 +54,40 @@ public class StaffServiceImpl implements IStaffService {
     }
 
     @Override
-    public Staff register(Staff staff) throws Exception {
+    public Staff insertStaff(Staff staff,String companyId) throws Exception {
         if(staffDao.findByMobile(staff.getPhone())!=null){
             throw new Exception("手机号已被注册");
         }
-        if(companyDao.findById(staff.getCompanyId())==null){
-            throw new Exception("公司未注册");
+        if(companyId == null || companyId.equals("")) {
+            if (companyDao.findById(staff.getCompanyId()) == null) {
+                throw new Exception("公司未注册");
+            }
+        }else {
+            staff.setCompanyId(companyId);
         }
         staff.setStaffId(String.valueOf(System.currentTimeMillis()));
         staffDao.insert(staff);
         return staff;
     }
 
+    @Override
+    public void deleteStaff(String id) throws Exception {
+        Staff staff = staffDao.findById(id);
+        Agreement agreement = agreementDao.findById(staff.getAgreementId());
+        agreementDao.delete(agreement);
+        staffDao.delete(staff);
+    }
+
+    @Override
+    public List<Staff> selectByAdmin() throws Exception {
+        return staffDao.selectList(null,null,null);
+    }
+
+    @Override
+    public List<Staff> selectByCompany(Company company) throws Exception {
+        String condition = " company_id = :companyId ";
+        Map<String,Object> param = new HashMap<String,Object>();
+        param.put("companyId",company.getCompanyId());
+        return staffDao.selectList(condition,param,null);
+    }
 }

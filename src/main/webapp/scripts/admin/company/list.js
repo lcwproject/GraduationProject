@@ -4,13 +4,12 @@ $(document).ready(function() {
 });
 
 function loadCompanyData() {
-    var dataSource = null;
     $.ajax({
-        url:contextPath + "/company/selectList",
+        url:contextPath + "/company/queryCompanyByAdmin",
         method:"POST",
         success:function (data) {
-            dataSource = $.parseJSON(data);
-            $('#companyTable').DataTable({
+            var dataSource = $.parseJSON(data);
+            table = $('#companyTable').DataTable({
                 data:dataSource,
                 columns:[
                     { data: 'companyName' },
@@ -20,17 +19,14 @@ function loadCompanyData() {
                     { data: 'introduction' },
                     { data:
                             function (data) {
-                                return '<a href="#" data-toggle="modal" data-target="#deleteModal" data-deleteid = "'+ data.id +'" data-deletename = " '+ data.companyName +' ">删除</a>';
+                                return '<a href="#" data-toggle="modal" data-target="#deleteModal" data-deleteid = "'+ data.companyId +'" data-deletename = " '+ data.companyName +' ">删除</a>';
                             }
                     }
                 ]
             });
+            table.draw(false);
         }
     });
-}
-
-function openAddModal() {
-
 }
 
 function initDeleteModal() {
@@ -51,14 +47,15 @@ function deleteCompany() {
     var title = "删除公司";
     $.ajax({
         type: 'POST',
-        url: contextPath+"/company/delete",
+        url: contextPath+"/company/deleteCompany",
         data:param,
         success : function(data) {
             $('#deleteModal').modal('hide');
-            if(data==='error'){
-                showAlertModal(title,'产生错误',false);
+            if(data==='0'){
+                //showAlertModal(title,'删除成功',true);
+                loadCompanyData();
             }else{
-                showAlertModal(title,'删除成功',true);
+                showAlertModal(title,'产生错误',false);
             }
         },
         error : function() {
@@ -73,17 +70,17 @@ function addCompany() {
     var title = "新增公司";
     var param = $("#add_company_form").serializeObject();
     //todo 校验表单输入
-    debugger;
     $.ajax({
         type: 'POST',
         url: contextPath+"/company/addCompany",
         data:param,
         success : function(data) {
             $('#addModal').modal('hide');
-            if(data==='error'){
-                showAlertModal(title,'产生错误',false);
+            if(data==='0'){
+                //showAlertModal(title,'加入成功',true);
+                loadCompanyData();
             }else{
-                showAlertModal(title,'加入成功',true);
+                showAlertModal(title,'产生错误',false);
             }
         },
         error : function() {

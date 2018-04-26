@@ -9,6 +9,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 /**
  * @project: laborManager
  * @description: here to type description
@@ -47,11 +50,45 @@ public class AgreementController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        if(agreement!=null) {
-            return JSON.toJSONString(agreement);
-        }else{
-            return null;
+        return JSON.toJSONString(agreement);
+    }
+
+    @RequestMapping("/queryAgreementByCompany")
+    @ResponseBody
+    public String queryAgreementByCompany(@SessionAttribute("currentCompany") Company company){
+        List<Agreement> agreementList = new ArrayList<>();
+        try{
+            agreementList = agreementService.queryByCompany(company);
+        }catch (Exception e){
+            e.printStackTrace();
         }
+        return JSON.toJSONString(agreementList);
+    }
+
+    @RequestMapping("/addAgreement")
+    @ResponseBody
+    public String addAgreement(@SessionAttribute("currentCompany") Company company,
+                  Agreement agreement, @RequestParam(value = "staffId") String staffId){
+        Agreement result = null;
+        try{
+            result = agreementService.addAgreement(agreement,company,staffId);
+        }catch (Exception e){
+            e.printStackTrace();
+            return e.toString();
+        }
+        return result==null?"创建失败":"0";
+    }
+
+    @RequestMapping(value = "/deleteCompany",method = RequestMethod.POST)
+    @ResponseBody
+    public String deleteAgreement(@SessionAttribute("currentCompany") Company company,String id){
+        try {
+            agreementService.deleteAgreement(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return "内部错误";
+        }
+        return "0";
     }
 
 }

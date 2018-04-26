@@ -2,13 +2,16 @@ package com.graduate.laborManager.company.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.graduate.laborManager.company.service.ICompanyService;
+import com.graduate.laborManager.pub.bean.Admin;
 import com.graduate.laborManager.pub.bean.Company;
 import com.graduate.laborManager.pub.bean.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,7 +22,7 @@ import java.util.List;
  */
 
 @Controller
-@SessionAttributes(value={"currentStaff","currentCompany"},types={Staff.class,Company.class})
+@SessionAttributes(value={"currentStaff","currentCompany","admin"},types={Staff.class,Company.class, Admin.class})
 @RequestMapping("company")
 public class CompanyController {
 
@@ -36,7 +39,7 @@ public class CompanyController {
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public ModelAndView login(Company company){
+    public ModelAndView login(Company company, SessionStatus sessionStatus){
         ModelAndView mav = null;
         try{
             Company currentCompany = companyService.Login(company.getEmail(),company.getPassword());
@@ -45,6 +48,7 @@ public class CompanyController {
         }catch (Exception e){
             e.printStackTrace();
             mav = new ModelAndView("registerAndLogin");
+            sessionStatus.setComplete();
         }
         return mav;
     }
@@ -54,13 +58,10 @@ public class CompanyController {
     public String register(Company company){
         Company result=null;
         try {
-            if(!companyService.checkEmail(company.getEmail())){
-                return "手机号被注册";
-            }
-            result = companyService.register(company);
+            result = companyService.insertCompany(company);
         }catch (Exception e){
             e.printStackTrace();
-            return "内部错误";
+            return e.toString();
         }
         return result==null?"注册失败":"0";
     }
@@ -81,5 +82,45 @@ public class CompanyController {
         }
     }
 
+    @RequestMapping(value = "/queryCompanyByAdmin" ,method = RequestMethod.POST)
+    @ResponseBody
+    public String queryCompanyByAdmin(@SessionAttribute("admin") Admin admin){
+        List<Company> companyList = new ArrayList<>();
+        try{
+            companyList = companyService.queryByAdmin();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if(companyList!=null && companyList.size()>0 ) {
+            return JSON.toJSONString(companyList);
+        }else{
+            return null;
+        }
+    }
+
+    @RequestMapping(value = "/addCompany",method = RequestMethod.POST)
+    @ResponseBody
+    public String addCompany(@SessionAttribute("admin") Admin admin,Company company){
+        Company result=null;
+        try {
+            result = companyService.insertCompany(company);
+        }catch (Exception e){
+            e.printStackTrace();
+            return e.toString();
+        }
+        return result==null?"加入失败":"0";
+    }
+
+    @RequestMapping(value = "/deleteCompany",method = RequestMethod.POST)
+    @ResponseBody
+    public String deleteCompany(@SessionAttribute("admin") Admin admin,String id){
+        try {
+            companyService.deleteCompany(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return "内部错误";
+        }
+        return "0";
+    }
 
 }

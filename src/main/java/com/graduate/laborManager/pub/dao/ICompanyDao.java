@@ -11,4 +11,7 @@ import com.graduate.laborManager.pub.bean.Company;
  */
 
 public interface ICompanyDao extends IBaseDao<Company> {
+
+    public Company findByEmail(String email) throws Exception ;
+
 }

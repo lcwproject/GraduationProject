@@ -14,12 +14,13 @@ import java.util.List;
 
 public interface ICompanyService {
 
-    public Company register(Company company) throws Exception ;
-
     public Company Login(String email, String password) throws Exception;
-
-    public Boolean checkEmail(String email) throws Exception ;
 
     public Company queryByStaff(Staff staff) throws Exception ;
 
+    public List<Company> queryByAdmin() throws Exception;
+
+    public Company insertCompany(Company company) throws Exception ;
+
+    public void deleteCompany(String id) throws Exception ;
 }

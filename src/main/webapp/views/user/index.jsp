@@ -1,4 +1,4 @@
-<%--
+<%@ page import="com.graduate.laborManager.pub.bean.Staff" %><%--
   Created by IntelliJ IDEA.
   User: hahaha
   Date: 2018/4/23
@@ -22,9 +22,18 @@
             <li><a href="#company">单位</a></li>
             <li><a href="#deal">协议</a></li>
             <li><a href="#salary">工资</a></li>
-            <li><a href="../registerAndLogin.jsp">退出</a></li>
+            <li><a href="<%=contextPath%>/allUser/logOut">退出</a></li>
         </ul>
     </nav>
+
+    <%
+        Staff currentStaff = (Staff) session.getAttribute("currentStaff");
+        if(currentStaff==null){
+            RequestDispatcher  rd = request.getRequestDispatcher("/views/registerAndLogin.jsp");
+            rd.forward(request,response);
+        }
+    %>
+
 </header>
 
 <!-- home -->

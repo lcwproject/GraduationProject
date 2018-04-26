@@ -1,12 +1,15 @@
 package com.graduate.laborManager.company.service.impl;
 
+import com.graduate.laborManager.agreement.service.IAgreementService;
 import com.graduate.laborManager.company.service.ICompanyService;
+import com.graduate.laborManager.pub.bean.Agreement;
 import com.graduate.laborManager.pub.bean.Company;
 import com.graduate.laborManager.pub.bean.Staff;
 import com.graduate.laborManager.pub.dao.ICompanyDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,9 +26,12 @@ public class CompanyServiceImpl implements ICompanyService {
 
     private ICompanyDao companyDao;
 
+    private IAgreementService agreementService;
+
     @Autowired
-    public CompanyServiceImpl(ICompanyDao companyDao) {
+    public CompanyServiceImpl(ICompanyDao companyDao, IAgreementService agreementService) {
         this.companyDao = companyDao;
+        this.agreementService = agreementService;
     }
 
     @Override
@@ -45,22 +51,32 @@ public class CompanyServiceImpl implements ICompanyService {
     }
 
     @Override
-    public Company register(Company company) throws Exception {
+    public Company insertCompany(Company company) throws Exception {
+        if(companyDao.findByEmail(company.getEmail())!=null){
+            throw new Exception("邮箱已经被注册");
+        }
         company.setCompanyId(String.valueOf(System.currentTimeMillis()));
         companyDao.insert(company);
         return company;
     }
 
     @Override
-    public Boolean checkEmail(String email) throws Exception {
-        String condition = " email = :email";
-        Map<String,Object> param = new HashMap<>();
-        param.put("email",email);
-        return companyDao.selectList(condition,param,null).size() == 0;
+    public void deleteCompany(String id) throws Exception {
+        Company company = companyDao.findById(id);
+        List<Agreement> agreementList = agreementService.queryByCompany(company);
+        for (Agreement agreement : agreementList){
+            agreementService.deleteAgreement(agreement.getAgreementId());
+        }
+        companyDao.delete(company);
     }
 
     @Override
     public Company queryByStaff(Staff staff) throws Exception {
         return companyDao.findById(staff.getCompanyId());
+    }
+
+    @Override
+    public List<Company> queryByAdmin() throws Exception {
+        return companyDao.selectList(null,null,null);
     }
 }

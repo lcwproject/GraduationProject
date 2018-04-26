@@ -18,6 +18,8 @@ $(document).ready(function() {
     $("[data-toggle='treeview.'].is-expanded").parent().toggleClass('is-expanded');
     //Activate bootstrip tooltips
     $("[data-toggle='tooltip']").tooltip();
+
+    $.fn.dataTable.ext.errMode = function(s,h,m){}
     
 });
 // (function() {

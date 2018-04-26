@@ -12,6 +12,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/bootstrap/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/bootstrap/bootstrap-table.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/bootstrap/bootstrap-reboot.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/bootstrap/bootstrap-grid.min.css" />
 
@@ -41,6 +42,8 @@
     <!-- 可移动效果 -->
     <script src="<%=contextPath%>/resources/js/plugins/popper.min.js"></script>
     <script src="<%=contextPath%>/resources/js/bootstrap/bootstrap.min.js"></script>
+    <script src="<%=contextPath%>/resources/js/plugins/bootstrap-table.min.js"></script>
+    <script src="<%=contextPath%>/resources/js/plugins/bootstrap-table-locale-all.min.js"></script>
     <script src="<%=contextPath%>/resources/js/main/main.js"></script>
     <!-- 顶部进度条 -->
     <script src="<%=contextPath%>/resources/js/plugins/pace.min.js"></script>

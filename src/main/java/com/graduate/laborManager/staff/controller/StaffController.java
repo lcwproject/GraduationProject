@@ -1,14 +1,19 @@
 package com.graduate.laborManager.staff.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.graduate.laborManager.pub.bean.Admin;
 import com.graduate.laborManager.pub.bean.Company;
 import com.graduate.laborManager.pub.bean.Staff;
 import com.graduate.laborManager.staff.service.IStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * @project: laborManager
@@ -18,7 +23,7 @@ import java.util.Date;
  */
 
 @Controller
-@SessionAttributes(value={"currentStaff","currentCompany"},types={Staff.class,Company.class})
+@SessionAttributes(value={"currentStaff","currentCompany","admin"},types={Staff.class,Company.class, Admin.class})
 @RequestMapping("/staff")
 public class StaffController {
 
@@ -40,7 +45,7 @@ public class StaffController {
     }
 
     @RequestMapping(value = "/login",method = RequestMethod.POST)
-    public ModelAndView login(Staff staff){
+    public ModelAndView login(Staff staff, SessionStatus sessionStatus){
         ModelAndView mav = null;
         try{
             Staff currentStaff = staffService.Login(staff.getPhone(),staff.getPassword());
@@ -49,6 +54,7 @@ public class StaffController {
         }catch (Exception e){
             e.printStackTrace();
             mav = new ModelAndView("registerAndLogin");
+            sessionStatus.setComplete();
         }
         return mav;
     }
@@ -58,12 +64,69 @@ public class StaffController {
     public String register(Staff staff){
         Staff result=null;
         try {
-            result = staffService.register(staff);
+            result = staffService.insertStaff(staff,null);
         }catch (Exception e){
             e.printStackTrace();
             return e.toString();
         }
         return result==null?"注册失败":"0";
+    }
+
+    @RequestMapping(value = "/addStaff",method = RequestMethod.POST)
+    @ResponseBody
+    public String addStaff(@SessionAttribute("currentCompany") Company company,Staff staff){
+        Staff result=null;
+        try {
+            result = staffService.insertStaff(staff,company.getCompanyId());
+        }catch (Exception e){
+            e.printStackTrace();
+            return e.toString();
+        }
+        return result==null?"加入失败":"0";
+    }
+
+    @RequestMapping(value = "/deleteStaff",method = RequestMethod.POST)
+    @ResponseBody
+    public String deleteStaff(@SessionAttribute("currentCompany") Company company,String id){
+        try {
+            staffService.deleteStaff(id);
+        }catch (Exception e){
+            e.printStackTrace();
+            return "内部错误";
+        }
+        return "0";
+    }
+
+    @RequestMapping(value = "/queryStaffByAdmin" ,method = RequestMethod.POST)
+    @ResponseBody
+    public String queryCompanyByAdmin(@SessionAttribute("admin") Admin admin){
+        List<Staff> staffList = new ArrayList<>();
+        try{
+            staffList = staffService.selectByAdmin();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if(staffList!=null && staffList.size()>0 ) {
+            return JSON.toJSONString(staffList);
+        }else{
+            return null;
+        }
+    }
+
+    @RequestMapping(value = "/queryStaffByCompany" ,method = RequestMethod.POST)
+    @ResponseBody
+    public String queryCompanyByCompany(@SessionAttribute("currentCompany") Company company){
+        List<Staff> staffList = new ArrayList<>();
+        try{
+            staffList = staffService.selectByCompany(company);
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        if(staffList!=null && staffList.size()>0 ) {
+            return JSON.toJSONString(staffList);
+        }else{
+            return null;
+        }
     }
 
 }

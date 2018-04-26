@@ -65,5 +65,8 @@ function companyLogin() {
 }
 
 function adminLogin() {
-
+    var form = $("#adminLoginForm");
+    //var admin = form.serializeObject();
+    //todo 表单校验
+    form.submit();
 }

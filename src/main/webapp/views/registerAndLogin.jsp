@@ -1,4 +1,6 @@
-<%--
+<%@ page import="com.graduate.laborManager.pub.bean.Staff" %>
+<%@ page import="com.graduate.laborManager.pub.bean.Company" %>
+<%@ page import="com.graduate.laborManager.pub.bean.Admin" %><%--
   Created by IntelliJ IDEA.
   User: hahaha
   Date: 2018/4/23
@@ -11,6 +13,23 @@
     <title>注册登录</title>
     <%@ include file="initResoucePage.jsp"%>
     <link rel="stylesheet" type="text/css"  href="<%=contextPath%>/resources/css/user/mainrl.css" />
+    <%
+        Staff currentStaff = (Staff) session.getAttribute("currentStaff");
+        if(currentStaff!=null){
+            RequestDispatcher  rd = request.getRequestDispatcher("/views/user/index.jsp");
+            rd.forward(request,response);
+        }
+        Company currentCompany = (Company) session.getAttribute("currentCompany");
+        if(currentCompany!=null){
+            RequestDispatcher  rd = request.getRequestDispatcher("/views/company/main.jsp");
+            rd.forward(request,response);
+        }
+        Admin admin = (Admin) session.getAttribute("admin");
+        if(admin!=null){
+            RequestDispatcher  rd = request.getRequestDispatcher("/views/admin/main.jsp");
+            rd.forward(request,response);
+        }
+    %>
 </head>
 <body class="loading">
 <div id="wrapper">
@@ -204,20 +223,20 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form>
+                <form id="adminLoginForm" action="<%=contextPath%>/admin/login" method="post">
                     <div class="form-group">
                         <label for="alname" class="col-form-label">用户名:</label>
-                        <input type="text" class="form-control" id="alname">
+                        <input type="text" class="form-control" id="alname" name="name">
                     </div>
                     <div class="form-group">
                         <label for="alpassword" class="col-form-label">密码:</label>
-                        <input type="password" class="form-control" id="alpassword">
+                        <input type="password" class="form-control" id="alpassword" name="password">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">取消</button>
-                <button type="button" class="btn btn-primary">登录</button>
+                <button type="button" class="btn btn-primary" onclick="adminLogin()">登录</button>
             </div>
         </div>
     </div>
