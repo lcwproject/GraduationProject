@@ -1,5 +1,6 @@
 package com.graduate.laborManager.salary.service.impl;
 
+import com.graduate.laborManager.common.util.ImportExcelUtil;
 import com.graduate.laborManager.pub.bean.Company;
 import com.graduate.laborManager.pub.bean.Salary;
 import com.graduate.laborManager.pub.bean.Staff;
@@ -9,6 +10,10 @@ import com.graduate.laborManager.salary.service.ISalaryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -28,9 +33,11 @@ public class SalaryServiceImpl implements ISalaryService {
     private IStaffDao staffDao;
 
     @Autowired
-    public SalaryServiceImpl(ISalaryDao salaryDao) {
+    public SalaryServiceImpl(ISalaryDao salaryDao, IStaffDao staffDao) {
         this.salaryDao = salaryDao;
+        this.staffDao = staffDao;
     }
+
 
     @Override
     public List<Salary> queryByStaff(Staff staff) throws Exception {
@@ -60,5 +67,37 @@ public class SalaryServiceImpl implements ISalaryService {
         salary.setSalaryId(String.valueOf(System.currentTimeMillis()));
         salaryDao.insert(salary);
         return salary;
+    }
+
+    @Override
+    public List<Salary> addSalaryByFile(File excle, String company_id) throws Exception {
+        List<Salary> addSalaryList = new ArrayList<>();
+        List<Salary> querySalaryViewList = new ArrayList<>();
+        FileInputStream fis = null;
+        String condition = " company_id = :conpanyId ";
+        Map<String,Object> param = new HashMap<String,Object>();
+        param.put("conpanyId",company_id);
+        List<Staff> staffs = staffDao.selectList(condition,param,null);
+        fis = new FileInputStream(excle);
+        //excel对应的字段
+        Map<String, String> m = new HashMap<String, String>();
+        m.put("姓名", "name");
+        m.put("电话号码", "phone");
+        m.put("日期", "date");
+        m.put("薪水", "salary");
+        m.put("备注", "tip");
+        List<Map<String, Object>> ls = ImportExcelUtil.parseExcel(fis, excle.getName(), m);
+        for (int i= 0; i<ls.size(); i++) {
+            Salary itms = new Salary();
+            itms.setCompanyId(company_id);
+            itms.setStaffId(staffDao.findByMobile((String) ls.get(i).get("date")).getStaffId());
+            itms.setDate((String) ls.get(i).get("date"));
+            itms.setTip((String) ls.get(i).get("tip"));
+            //itms.getSalary(ls.get(i).get("salary"));
+            addSalaryList.add(itms);
+        }
+        salaryDao.insertList(addSalaryList);
+        return addSalaryList;
+
     }
 }
