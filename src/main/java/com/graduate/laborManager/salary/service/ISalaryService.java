@@ -4,6 +4,7 @@ import com.graduate.laborManager.pub.bean.Company;
 import com.graduate.laborManager.pub.bean.Salary;
 import com.graduate.laborManager.pub.bean.Staff;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -21,4 +22,5 @@ public interface ISalaryService {
 
     public Salary addSalary(Salary salary,String staffId) throws Exception;
 
+    public List<Salary> addSalaryByFile(File excle, String company) throws Exception;
 }
