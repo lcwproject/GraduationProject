@@ -1,5 +1,8 @@
 $(document).ready(function() {
-
+    var msg = loginErrorMsg;
+    if(loginErrorMsg !== "null"){
+        showAlertModal("登录失败",loginErrorMsg,false);
+    }
 });
 
 function userRegister() {

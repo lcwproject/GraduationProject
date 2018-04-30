@@ -89,7 +89,7 @@ public class AgreementController {
             result = agreementService.addAgreement(agreement,company,staffId);
         }catch (Exception e){
             e.printStackTrace();
-            return e.toString();
+            return e.getMessage();
         }
         return result==null?"创建失败":"0";
     }

@@ -30,6 +30,9 @@
             rd.forward(request,response);
         }
     %>
+    <script>
+        loginErrorMsg = "<%= request.getAttribute("loginErrorMsg") %>";
+    </script>
 </head>
 <body class="loading">
 <div id="wrapper">

@@ -63,7 +63,7 @@
             info:true,
             language: {
                 lengthMenu:     "每页 _MENU_ 行",
-                info:           "当前显示 _START_ 到 _END_ 页，共 _TOTAL_ 条数据",
+                info:           "当前显示 _START_ 到 _END_ 条，共 _TOTAL_ 条数据",
                 loadingRecords: "加载中",
                 zeroRecords:    "暂时无数据",
                 emptyTable:     "暂时无数据",

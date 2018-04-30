@@ -39,6 +39,7 @@ public class AdminCtr {
         }catch (Exception e){
             e.printStackTrace();
             mav = new ModelAndView("registerAndLogin");
+            mav.addObject("loginErrorMsg",e.getMessage());
             sessionStatus.setComplete();
         }
         return mav;
