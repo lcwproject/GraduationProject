@@ -1,11 +1,13 @@
 package com.graduate.laborManager.salary.view;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SalaryView {
     private String name;
     private String phone;
     private Date date;
+    private String dateToShow;
     private Integer salary;
     private String tip;
 
@@ -31,6 +33,7 @@ public class SalaryView {
 
     public void setDate(Date date) {
         this.date = date;
+        this.dateToShow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
     }
 
     public Integer getSalary() {
@@ -47,5 +50,13 @@ public class SalaryView {
 
     public void setTip(String tip) {
         this.tip = tip;
+    }
+
+    public String getDateToShow() {
+        return dateToShow;
+    }
+
+    public void setDateToShow(String dateToShow) {
+        this.dateToShow = dateToShow;
     }
 }

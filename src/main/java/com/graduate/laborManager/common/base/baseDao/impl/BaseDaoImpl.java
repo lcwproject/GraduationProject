@@ -55,7 +55,7 @@ public abstract class BaseDaoImpl<E> implements IBaseDao<E> {
     @Transactional
     public void updateList(List<E> entityList) throws Exception {
         for (int i=0;i<entityList.size();i++){
-            E entity = entityList.get(0);
+            E entity = entityList.get(i);
             this.em.merge(entity);
         }
     }

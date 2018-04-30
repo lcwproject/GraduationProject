@@ -107,14 +107,6 @@
     </div>
 </div>
 
-
-
-
-
-
-
-
-
 <script src="<%=contextPath%>/scripts/company/salary/list.js"></script>
 </body>
 

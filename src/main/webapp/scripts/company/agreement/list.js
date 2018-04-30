@@ -1,5 +1,6 @@
 $(document).ready(function() {
     loadCompanyData();
+    loadAlarmData();
     initDetailModal()
 });
 
@@ -16,13 +17,34 @@ function loadCompanyData() {
                     { data: 'agreementId' },
                     { data: 'staffName' },
                     { data: 'title' },
-                    { data: 'startTime' },
-                    { data: 'endTime' },
+                    { data: 'startTimeToShow' },
+                    { data: 'endTimeToShow' },
                     { data:
                             function (data) {
                                 return '<a href="#" data-toggle="modal" data-target="#detialModal" data-detialtitle = "'+ data.title +'" data-detialcontent = " '+ data.content +' ">查看</a>';
                             }
                     }
+                ]
+            });
+        }
+    });
+}
+
+function loadAlarmData() {
+    var dataSource = null;
+    $.ajax({
+        url:contextPath + "/agreement/queryAlarmAgreementByCompany",
+        method:"POST",
+        success:function (data) {
+            dataSource = $.parseJSON(data);
+            $('#agreementAlarmTable').DataTable({
+                data:dataSource,
+                columns:[
+                    { data: 'agreementId' },
+                    { data: 'staffName' },
+                    { data: 'title' },
+                    { data: 'startTimeToShow' },
+                    { data: 'endTimeToShow' }
                 ]
             });
         }

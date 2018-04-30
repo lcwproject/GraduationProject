@@ -1,6 +1,8 @@
 package com.graduate.laborManager.agreement.view;
 
+import java.sql.Date;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 
 public class AgreementView {
     private String agreementId;
@@ -9,7 +11,9 @@ public class AgreementView {
     private String title;
     private String content;
     private java.sql.Timestamp startTime;
+    private String startTimeToShow;
     private java.sql.Timestamp endTime;
+    private String endTimeToShow;
 
     public Timestamp getStartTime() {
         return startTime;
@@ -17,6 +21,7 @@ public class AgreementView {
 
     public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
+        this.startTimeToShow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(startTime);
     }
 
     public Timestamp getEndTime() {
@@ -25,6 +30,7 @@ public class AgreementView {
 
     public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
+        this.endTimeToShow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(endTime);
     }
 
     public String getAgreementId() {
@@ -67,5 +73,19 @@ public class AgreementView {
         this.content = content;
     }
 
+    public String getEndTimeToShow() {
+        return endTimeToShow;
+    }
 
+    public void setEndTimeToShow(String endTimeToShow) {
+        this.endTimeToShow = endTimeToShow;
+    }
+
+    public String getStartTimeToShow() {
+        return startTimeToShow;
+    }
+
+    public void setStartTimeToShow(String startTimeToShow) {
+        this.startTimeToShow = startTimeToShow;
+    }
 }

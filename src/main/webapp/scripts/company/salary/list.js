@@ -14,7 +14,7 @@ function loadCompanyData() {
                     { data: 'name' },
                     { data: 'phone' },
                     { data: 'salary' },
-                    { data: 'date' },
+                    { data: 'dateToShow' },
                     { data: 'tip' }
                 ]
             });
