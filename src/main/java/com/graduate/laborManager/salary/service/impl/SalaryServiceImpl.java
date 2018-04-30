@@ -7,6 +7,7 @@ import com.graduate.laborManager.pub.bean.Staff;
 import com.graduate.laborManager.pub.dao.ISalaryDao;
 import com.graduate.laborManager.pub.dao.IStaffDao;
 import com.graduate.laborManager.salary.service.ISalaryService;
+import com.graduate.laborManager.salary.view.SalaryView;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -49,12 +50,8 @@ public class SalaryServiceImpl implements ISalaryService {
     }
 
     @Override
-    public List<Salary> queryByCompany(Company company) throws Exception {
-        String condition = " company_id = :companyId ";
-        Map<String,Object> param = new HashMap<String,Object>();
-        param.put("companyId",company.getCompanyId());
-        String order = "date";
-        return salaryDao.selectList(condition,param,order);
+    public List<SalaryView> queryByCompany(Company company) throws Exception {
+        return salaryDao.queryByCompany(company.getCompanyId());
     }
 
     @Override
@@ -89,9 +86,11 @@ public class SalaryServiceImpl implements ISalaryService {
         List<Map<String, Object>> ls = ImportExcelUtil.parseExcel(fis, excle.getName(), m);
         for (int i= 0; i<ls.size(); i++) {
             Salary itms = new Salary();
+            itms.setSalaryId(String.valueOf(System.currentTimeMillis()));
             itms.setCompanyId(company_id);
-            itms.setStaffId(staffDao.findByMobile((String) ls.get(i).get("date")).getStaffId());
+            itms.setStaffId(staffDao.findByMobile((String) ls.get(i).get("phone")).getStaffId());
             itms.setDate((String) ls.get(i).get("date"));
+            itms.setSalary(Integer.parseInt((String)ls.get(i).get("salary")));
             itms.setTip((String) ls.get(i).get("tip"));
             //itms.getSalary(ls.get(i).get("salary"));
             addSalaryList.add(itms);

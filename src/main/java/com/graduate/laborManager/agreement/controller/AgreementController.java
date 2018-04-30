@@ -2,6 +2,7 @@ package com.graduate.laborManager.agreement.controller;
 
 import com.alibaba.fastjson.JSON;
 import com.graduate.laborManager.agreement.service.IAgreementService;
+import com.graduate.laborManager.agreement.view.AgreementView;
 import com.graduate.laborManager.pub.bean.Agreement;
 import com.graduate.laborManager.pub.bean.Company;
 import com.graduate.laborManager.pub.bean.Staff;
@@ -21,7 +22,7 @@ import java.util.List;
 
 @Controller
 @SessionAttributes(value={"currentStaff","currentCompany"},types={Staff.class,Company.class})
-@RequestMapping("agreement")
+@RequestMapping("/agreement")
 public class AgreementController {
 
     private IAgreementService agreementService;
@@ -56,7 +57,21 @@ public class AgreementController {
     @RequestMapping("/queryAgreementByCompany")
     @ResponseBody
     public String queryAgreementByCompany(@SessionAttribute("currentCompany") Company company){
-        List<Agreement> agreementList = new ArrayList<>();
+
+        List<AgreementView> agreementList = new ArrayList<>();
+        try{
+            agreementList = agreementService.queryByCompany(company);
+            System.out.println(agreementList.get(0).getStaffName());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return JSON.toJSONString(agreementList);
+    }
+
+    @RequestMapping("/queryAlarmAgreementByCompany")
+    @ResponseBody
+    public String queryAlarmAgreementByCompany(@SessionAttribute("currentCompany") Company company){
+        List<AgreementView> agreementList = new ArrayList<>();
         try{
             agreementList = agreementService.queryByCompany(company);
         }catch (Exception e){

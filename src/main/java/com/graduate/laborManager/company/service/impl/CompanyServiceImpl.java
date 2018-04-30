@@ -1,6 +1,7 @@
 package com.graduate.laborManager.company.service.impl;
 
 import com.graduate.laborManager.agreement.service.IAgreementService;
+import com.graduate.laborManager.agreement.view.AgreementView;
 import com.graduate.laborManager.company.service.ICompanyService;
 import com.graduate.laborManager.pub.bean.Agreement;
 import com.graduate.laborManager.pub.bean.Company;
@@ -63,8 +64,8 @@ public class CompanyServiceImpl implements ICompanyService {
     @Override
     public void deleteCompany(String id) throws Exception {
         Company company = companyDao.findById(id);
-        List<Agreement> agreementList = agreementService.queryByCompany(company);
-        for (Agreement agreement : agreementList){
+        List<AgreementView> agreementList = agreementService.queryByCompany(company);
+        for (AgreementView agreement : agreementList){
             agreementService.deleteAgreement(agreement.getAgreementId());
         }
         companyDao.delete(company);

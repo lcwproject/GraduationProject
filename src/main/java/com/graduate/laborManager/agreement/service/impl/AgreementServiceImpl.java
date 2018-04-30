@@ -1,6 +1,7 @@
 package com.graduate.laborManager.agreement.service.impl;
 
 import com.graduate.laborManager.agreement.service.IAgreementService;
+import com.graduate.laborManager.agreement.view.AgreementView;
 import com.graduate.laborManager.pub.bean.Agreement;
 import com.graduate.laborManager.pub.bean.Company;
 import com.graduate.laborManager.pub.bean.Staff;
@@ -39,12 +40,13 @@ public class AgreementServiceImpl implements IAgreementService {
     }
 
     @Override
-    public List<Agreement> queryByCompany(Company company) throws Exception {
-        String condition = " company_id = :companyId ";
-        Map<String,Object> param = new HashMap<>();
-        param.put("companyId",company.getCompanyId());
-        String order = "end_time";
-        return agreementDao.selectList(condition,param,order);
+    public List<AgreementView> queryByCompany(Company company) throws Exception {
+        return agreementDao.queryCompanyAgreement(company.getCompanyId());
+    }
+
+    @Override
+    public List<AgreementView> queryAlarmByCompany(Company company) throws Exception {
+        return agreementDao.queryAlarmAgreement(company.getCompanyId());
     }
 
     @Override
@@ -59,6 +61,7 @@ public class AgreementServiceImpl implements IAgreementService {
         agreementDao.insert(agreement);
         staff.setAgreementId(agreement.getAgreementId());
         staffDao.update(staff);
+
         return agreement;
     }
 
