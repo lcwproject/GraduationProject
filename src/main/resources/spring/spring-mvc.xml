@@ -29,6 +29,14 @@
     <mvc:resources mapping="/resources/**" location="/resources/" order="1" />
     <mvc:resources mapping="/scripts/**" location="/scripts/" order="1" />
 
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="maxUploadSize" value="209715200" />
+        <property name="defaultEncoding" value="UTF-8" />
+        <property name="resolveLazily" value="true" />
+    </bean>
+
+
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter" >
         <property name="messageConverters">
             <list>

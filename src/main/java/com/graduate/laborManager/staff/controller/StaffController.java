@@ -1,7 +1,9 @@
 package com.graduate.laborManager.staff.controller;
 
 import com.alibaba.fastjson.JSON;
+import com.graduate.laborManager.agreement.service.IAgreementService;
 import com.graduate.laborManager.pub.bean.Admin;
+import com.graduate.laborManager.pub.bean.Agreement;
 import com.graduate.laborManager.pub.bean.Company;
 import com.graduate.laborManager.pub.bean.Staff;
 import com.graduate.laborManager.staff.service.IStaffService;
@@ -28,11 +30,16 @@ import java.util.List;
 public class StaffController {
 
     private IStaffService staffService;
+    private IAgreementService agreementService;
+
+
+    public StaffController(IStaffService staffService, IAgreementService agreementService) {
+        this.staffService = staffService;
+        this.agreementService = agreementService;
+    }
 
     @Autowired
-    public StaffController(IStaffService staffService) {
-        this.staffService = staffService;
-    }
+
 
     @RequestMapping(value = "/listAdmin")
     public String listAdminPage(){
@@ -74,10 +81,12 @@ public class StaffController {
 
     @RequestMapping(value = "/addStaff",method = RequestMethod.POST)
     @ResponseBody
-    public String addStaff(@SessionAttribute("currentCompany") Company company,Staff staff){
+    public String addStaff(@SessionAttribute("currentCompany") Company company, Staff staff, Agreement agreement){
         Staff result=null;
         try {
-            result = staffService.insertStaff(staff,company.getCompanyId());
+            result=staffService.insertStaff(staff,company.getCompanyId());
+
+            agreementService.addAgreement(agreement,company,result.getStaffId());
         }catch (Exception e){
             e.printStackTrace();
             return e.toString();
@@ -117,8 +126,10 @@ public class StaffController {
     @ResponseBody
     public String queryCompanyByCompany(@SessionAttribute("currentCompany") Company company){
         List<Staff> staffList = new ArrayList<>();
+        System.out.println("1111111:");
         try{
             staffList = staffService.selectByCompany(company);
+            System.out.println("1111111:"+staffList.size());
         }catch (Exception e){
             e.printStackTrace();
         }

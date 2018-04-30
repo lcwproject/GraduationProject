@@ -5,6 +5,8 @@ import com.graduate.laborManager.pub.bean.Company;
 import com.graduate.laborManager.pub.bean.Salary;
 import com.graduate.laborManager.pub.bean.Staff;
 import com.graduate.laborManager.salary.service.ISalaryService;
+import com.graduate.laborManager.salary.view.SalaryView;
+import com.graduate.laborManager.staff.service.IStaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,15 +27,19 @@ import java.util.List;
 
 @Controller
 @SessionAttributes(value={"currentStaff","currentCompany"},types={Staff.class,Company.class})
-@RequestMapping("salary")
+@RequestMapping("/salary")
 public class SalaryController {
 
     ISalaryService salaryService;
+    IStaffService staffService;
+
+    public SalaryController(ISalaryService salaryService, IStaffService staffService) {
+        this.salaryService = salaryService;
+        this.staffService = staffService;
+    }
 
     @Autowired
-    public SalaryController(ISalaryService salaryService) {
-        this.salaryService = salaryService;
-    }
+
 
     @RequestMapping("/listCompany")
     public String listCompanyPage(){
@@ -55,7 +61,7 @@ public class SalaryController {
     @RequestMapping("/querySalaryByCompany")
     @ResponseBody
     public String querySalaryByCompany(@SessionAttribute("currentCompany") Company company){
-        List<Salary> salaryList = new ArrayList<>();
+        List<SalaryView> salaryList = new ArrayList<>();
         try{
             salaryList = salaryService.queryByCompany(company);
         }catch (Exception e){
@@ -67,10 +73,16 @@ public class SalaryController {
     @RequestMapping("/addSalary")
     @ResponseBody
     public String addSalary(@SessionAttribute("currentCompany") Company company,
-                            Salary salary, @RequestParam(value = "staffId") String staffId){
+                            Salary salary, @RequestParam(value = "phone") String phone){
         Salary result = null;
         try{
-            result = salaryService.addSalary(salary,staffId);
+            salary.setCompanyId(company.getCompanyId());
+            List<Staff> staffs = staffService.selectByCompany(company);
+            for(Staff s:staffs){
+                if(s.getPhone().equals(phone)){
+                    result = salaryService.addSalary(salary,s.getStaffId());
+                }
+            }
         }catch (Exception e){
             e.printStackTrace();
             return e.toString();

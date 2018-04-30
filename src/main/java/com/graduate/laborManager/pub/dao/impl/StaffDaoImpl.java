@@ -33,4 +33,6 @@ public class StaffDaoImpl extends BaseDaoImpl<Staff> implements IStaffDao {
         }
         return staffList.get(0);
     }
+
+    
 }
