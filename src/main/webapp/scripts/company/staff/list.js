@@ -1,6 +1,6 @@
 $(document).ready(function() {
     loadStaffData();
-    initDeleteModal()
+    initDeleteModal();
 });
 
 function loadStaffData() {
@@ -34,9 +34,9 @@ function initDeleteModal() {
         var id = trigger.data('deleteid');
         var name = trigger.data('deletename');
         var modal = $(this);
-        modal.find('.modal-body').text("确认删除"+name+"?");
+        modal.find('.modal-body').text("确认删除"+name+"吗?");
         modal.find('#deleteId').val(id);
-    })
+    });
 }
 
 

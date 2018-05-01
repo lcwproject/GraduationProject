@@ -25,12 +25,11 @@
 <body class="app sidebar-mini rtl">
     <!-- Navbar-->
     <header class="app-header">
-        <a class="app-header__logo" href="#"></a>
         <ul class="app-nav">
-            <!-- User Menu-->
+            <!-- Exit-->
             <li class="dropdown"><a class="app-nav__item" href="#" data-toggle="dropdown" aria-label="Open Profile Menu"><i class="fa fa-user fa-lg"></i></a>
                 <ul class="dropdown-menu settings-menu dropdown-menu-right">
-                    <li><a class="dropdown-item" href="<%=contextPath%>/allUser/logOut"><i class="fa fa-sign-out fa-lg"></i> Logout</a></li>
+                    <li><a class="dropdown-item" href="<%=contextPath%>/allUser/logOut"><i class="fa fa-sign-out fa-lg"></i>退出</a></li>
                 </ul>
             </li>
         </ul>
@@ -41,7 +40,7 @@
         <div class="app-sidebar__user"><img class="app-sidebar__user-avatar" src="https://s3.amazonaws.com/uifaces/faces/twitter/jsa/48.jpg" alt="User Image">
             <div>
                 <p class="app-sidebar__user-name">${sessionScope.currentCompany.companyName}</p>
-                <p class="app-sidebar__user-designation">${sessionScope.currentCompany.companyId}</p>
+                <p class="app-sidebar__user-designation">id:${sessionScope.currentCompany.companyId}</p>
             </div>
         </div>
         <ul class="app-menu">
@@ -61,7 +60,10 @@
             <div>
                 <h1><i class="fa fa-dashboard"></i>学生生产实习管理系统</h1>
             </div>
+
+
         </div>
+
         <div id = "main_content"></div>
 
     </main>

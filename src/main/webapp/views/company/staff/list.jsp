@@ -92,12 +92,12 @@
                         <textarea  type="text" class="form-control" id="content" name="content" ></textarea>
                     </div>
                     <div class="form-group">
-                        <label for="startTime" class="col-form-label">开始时间:</label>
-                        <input  type="text" class="form-control" id="startTime" name="startTime" ></input>
+                        <label for="startTime" class="col-form-label" >开始时间:</label>
+                        <input  type="text" class="form-control" id="startTime" name="startTime" placeholder="yyyy-mm-dd"></input>
                     </div>
                     <div class="form-group">
                         <label for="endTime" class="col-form-label">结束时间:</label>
-                        <input  type="text" class="form-control" id="endTime" name="endTime" ></input>
+                        <input  type="text" class="form-control" id="endTime" name="endTime"  placeholder="yyyy-mm-dd"></input>
                     </div>
                 </form>
             </div>
