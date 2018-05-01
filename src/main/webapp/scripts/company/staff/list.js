@@ -9,6 +9,7 @@ function loadStaffData() {
         url:contextPath + "/staff/queryStaffByCompany",
         method:"POST",
         success:function (data) {
+            debugger;
             var dataSource = $.parseJSON(data);
             if(table!==null){
                 table.destroy();

@@ -61,7 +61,6 @@ public class AgreementController {
         List<AgreementView> agreementList = new ArrayList<>();
         try{
             agreementList = agreementService.queryByCompany(company);
-            System.out.println(agreementList.get(0).getStaffName());
         }catch (Exception e){
             e.printStackTrace();
         }

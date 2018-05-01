@@ -76,11 +76,7 @@ public class CompanyController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        if(company!=null) {
-            return JSON.toJSONString(company);
-        }else{
-            return null;
-        }
+        return JSON.toJSONString(company);
     }
 
     @RequestMapping(value = "/queryCompanyByAdmin" ,method = RequestMethod.POST)
@@ -92,11 +88,7 @@ public class CompanyController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        if(companyList!=null && companyList.size()>0 ) {
-            return JSON.toJSONString(companyList);
-        }else{
-            return null;
-        }
+        return JSON.toJSONString(companyList);
     }
 
     @RequestMapping(value = "/addCompany",method = RequestMethod.POST)

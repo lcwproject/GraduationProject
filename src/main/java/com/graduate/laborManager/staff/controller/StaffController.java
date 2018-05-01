@@ -86,7 +86,6 @@ public class StaffController {
         Staff result=null;
         try {
             result=staffService.insertStaff(staff,company.getCompanyId());
-
             agreementService.addAgreement(agreement,company,result.getStaffId());
         }catch (Exception e){
             e.printStackTrace();
@@ -116,29 +115,19 @@ public class StaffController {
         }catch (Exception e){
             e.printStackTrace();
         }
-        if(staffList!=null && staffList.size()>0 ) {
-            return JSON.toJSONString(staffList);
-        }else{
-            return null;
-        }
+        return JSON.toJSONString(staffList);
     }
 
     @RequestMapping(value = "/queryStaffByCompany" ,method = RequestMethod.POST)
     @ResponseBody
     public String queryCompanyByCompany(@SessionAttribute("currentCompany") Company company){
         List<Staff> staffList = new ArrayList<>();
-        System.out.println("1111111:");
         try{
             staffList = staffService.selectByCompany(company);
-            System.out.println("1111111:"+staffList.size());
         }catch (Exception e){
             e.printStackTrace();
         }
-        if(staffList!=null && staffList.size()>0 ) {
-            return JSON.toJSONString(staffList);
-        }else{
-            return null;
-        }
+        return JSON.toJSONString(staffList);
     }
 
 }
