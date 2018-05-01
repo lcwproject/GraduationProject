@@ -57,21 +57,23 @@
 <section id="deal" class="main style2 left dark fullscreen">
     <div class="content box style2">
         <header>
-            <h4 >协议</h4>
+            <h4 id="agreementTitle">暂无协议</h4>
         </header>
-        <label id="agreementTitle">暂无协议</label>
+
         <label id="agreementContent">暂无协议</label>
     </div>
     <a href="#salary" class="button style2 down anchored">Next</a>
 </section>
 
 <!-- salary -->
-<section id="salary" class="main style2 dark fullscreen">
+<section id="salary" class="main style1 dark fullscreen">
     <div class="content box style2">
         <header>
             <h4>工资</h4>
         </header>
-            <table id="salaryTable" class="table table-hover ">
+        <div class="row">
+            <div class="col-md-12">
+            <table id="salaryTable" class="table table-hover">
                 <thead>
                 <tr>
                     <th>日期</th>
@@ -80,6 +82,8 @@
                 </tr>
                 </thead>
             </table>
+            </div>
+        </div>
     </div>
 </section>
 
