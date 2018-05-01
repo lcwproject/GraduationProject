@@ -61,6 +61,7 @@ public class StaffController {
         }catch (Exception e){
             e.printStackTrace();
             mav = new ModelAndView("registerAndLogin");
+            mav.addObject("loginErrorMsg",e.getMessage());
             sessionStatus.setComplete();
         }
         return mav;
@@ -74,7 +75,7 @@ public class StaffController {
             result = staffService.insertStaff(staff,null);
         }catch (Exception e){
             e.printStackTrace();
-            return e.toString();
+            return e.getMessage();
         }
         return result==null?"注册失败":"0";
     }
@@ -89,7 +90,7 @@ public class StaffController {
             agreementService.addAgreement(agreement,company,result.getStaffId());
         }catch (Exception e){
             e.printStackTrace();
-            return e.toString();
+            return e.getMessage();
         }
         return result==null?"加入失败":"0";
     }

@@ -85,7 +85,7 @@ public class SalaryController {
             }
         }catch (Exception e){
             e.printStackTrace();
-            return e.toString();
+            return e.getMessage();
         }
         return result==null?"新增失败":"0";
     }

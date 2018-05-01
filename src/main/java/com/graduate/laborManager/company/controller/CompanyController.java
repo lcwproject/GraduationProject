@@ -48,6 +48,7 @@ public class CompanyController {
         }catch (Exception e){
             e.printStackTrace();
             mav = new ModelAndView("registerAndLogin");
+            mav.addObject("loginErrorMsg",e.getMessage());
             sessionStatus.setComplete();
         }
         return mav;
@@ -61,7 +62,7 @@ public class CompanyController {
             result = companyService.insertCompany(company);
         }catch (Exception e){
             e.printStackTrace();
-            return e.toString();
+            return e.getMessage();
         }
         return result==null?"注册失败":"0";
     }
@@ -106,7 +107,7 @@ public class CompanyController {
             result = companyService.insertCompany(company);
         }catch (Exception e){
             e.printStackTrace();
-            return e.toString();
+            return e.getMessage();
         }
         return result==null?"加入失败":"0";
     }

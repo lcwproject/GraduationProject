@@ -52,8 +52,7 @@ function deleteStaff() {
         success : function(data) {
             $('#deleteModal').modal('hide');
             if(data==='0'){
-                //showAlertModal(title,'删除成功',true);
-                loadCompanyData();
+                showAlertModal(title,'删除成功',false);
             }else{
                 showAlertModal(title,'产生错误',false);
             }
@@ -77,8 +76,7 @@ function addStaff() {
         success : function(data) {
             $('#addModal').modal('hide');
             if(data==='0'){
-                //showAlertModal(title,'加入成功',true);
-                loadCompanyData();
+                showAlertModal(title,'加入成功',true);
             }else{
                 showAlertModal(title,'产生错误',false);
             }
