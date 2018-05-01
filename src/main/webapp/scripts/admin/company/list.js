@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    table = null;
     loadCompanyData();
     initDeleteModal()
 });
@@ -9,6 +10,9 @@ function loadCompanyData() {
         method:"POST",
         success:function (data) {
             var dataSource = $.parseJSON(data);
+            if(table!==null){
+                table.destroy();
+            }
             table = $('#companyTable').DataTable({
                 data:dataSource,
                 columns:[
@@ -24,7 +28,7 @@ function loadCompanyData() {
                     }
                 ]
             });
-            table.draw(false);
+            table.draw(true);
         }
     });
 }
@@ -53,6 +57,7 @@ function deleteCompany() {
             $('#deleteModal').modal('hide');
             if(data==='0'){
                 showAlertModal(title,'删除成功',true);
+                loadCompanyData();
             }else{
                 showAlertModal(title,'产生错误',false);
             }
@@ -77,6 +82,7 @@ function addCompany() {
             $('#addModal').modal('hide');
             if(data==='0'){
                 showAlertModal(title,'加入成功',true);
+                loadCompanyData();
             }else{
                 showAlertModal(title,'产生错误',false);
             }

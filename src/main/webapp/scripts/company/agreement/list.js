@@ -1,4 +1,6 @@
 $(document).ready(function() {
+    alarmTable = null;
+    agreeTable = null;
     loadCompanyData();
     loadAlarmData();
     initDetailModal()
@@ -11,7 +13,10 @@ function loadCompanyData() {
         method:"POST",
         success:function (data) {
             dataSource = $.parseJSON(data);
-            $('#agreementTable').DataTable({
+            if(agreeTable!==null){
+                agreeTable.destroy();
+            }
+            agreeTable = $('#agreementTable').DataTable({
                 data:dataSource,
                 columns:[
                     { data: 'agreementId' },
@@ -36,8 +41,11 @@ function loadAlarmData() {
         url:contextPath + "/agreement/queryAlarmAgreementByCompany",
         method:"POST",
         success:function (data) {
-            dataSource = $.parseJSON(data);
-            $('#agreementAlarmTable').DataTable({
+            dataSource = $.parseJSON(data)
+            if(alarmTable!==null){
+                alarmTable.destroy();
+            }
+            alarmTable = $('#agreementAlarmTable').DataTable({
                 data:dataSource,
                 columns:[
                     { data: 'agreementId' },

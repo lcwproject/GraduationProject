@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    table = null;
     loadCompanyData();
 });
 
@@ -8,6 +9,9 @@ function loadCompanyData() {
         method:"POST",
         success:function (data) {
             var dataSource = $.parseJSON(data);
+            if(table!==null){
+                table.destroy();
+            }
             table = $('#salaryTable').DataTable({
                 data:dataSource,
                 columns:[
@@ -36,7 +40,7 @@ function addSingleSalary() {
              $('#addSingModal').modal('hide');
              if(data==='0'){
                showAlertModal(title,'加入成功',true);
-                 loadCompanyData();
+               loadCompanyData();
              }else{
                  showAlertModal(title,'产生错误',false);
              }

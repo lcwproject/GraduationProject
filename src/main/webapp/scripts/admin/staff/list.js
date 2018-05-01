@@ -1,6 +1,6 @@
 $(document).ready(function() {
-    loadStaffData()
-
+    loadStaffData();
+    table = null;
 });
 
 function loadStaffData() {
@@ -9,6 +9,9 @@ function loadStaffData() {
         method:"POST",
         success:function (data) {
             var dataSource = $.parseJSON(data);
+            if(table!==null){
+                table.destroy();
+            }
             table = $('#companyTable').DataTable({
                 data:dataSource,
                 columns:[

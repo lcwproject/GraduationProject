@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    table = null;
     loadStaffData();
     initDeleteModal()
 });
@@ -9,6 +10,9 @@ function loadStaffData() {
         method:"POST",
         success:function (data) {
             var dataSource = $.parseJSON(data);
+            if(table!==null){
+                table.destroy();
+            }
             table = $('#staffTable').DataTable({
                 data:dataSource,
                 columns:[
@@ -53,6 +57,7 @@ function deleteStaff() {
             $('#deleteModal').modal('hide');
             if(data==='0'){
                 showAlertModal(title,'删除成功',false);
+                loadStaffData();
             }else{
                 showAlertModal(title,'产生错误',false);
             }
@@ -77,6 +82,7 @@ function addStaff() {
             $('#addModal').modal('hide');
             if(data==='0'){
                 showAlertModal(title,'加入成功',true);
+                loadStaffData();
             }else{
                 showAlertModal(title,'产生错误',false);
             }
