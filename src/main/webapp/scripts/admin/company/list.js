@@ -9,7 +9,7 @@ function loadCompanyData() {
         method:"POST",
         success:function (data) {
             var dataSource = $.parseJSON(data);
-            table = $('#companyTable').DataTable({
+            var table = $('#companyTable').DataTable({
                 data:dataSource,
                 columns:[
                     { data: 'companyName' },

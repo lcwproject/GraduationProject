@@ -9,7 +9,7 @@ function loadStaffData() {
         method:"POST",
         success:function (data) {
             var dataSource = $.parseJSON(data);
-            table = $('#staffTable').DataTable({
+            var table = $('#staffTable').DataTable({
                 data:dataSource,
                 columns:[
                     { data: 'name' },
@@ -23,7 +23,6 @@ function loadStaffData() {
                     }
                 ]
             });
-            table.draw(false);
         }
     });
 }
