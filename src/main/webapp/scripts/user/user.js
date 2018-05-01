@@ -9,7 +9,6 @@ function loadCompanyData(){
         url:contextPath + "/company/queryCompanyByStaff",
         method:"POST",
         success:function (data) {
-            debugger;
             var company= $.parseJSON(data);
             $('#companyNameShow').html(company.companyName);
             $('#introductionShow').html(company.introduction);
@@ -36,9 +35,8 @@ function loadSalaryData() {
         url:contextPath + "/salary/querySalaryByStaff",
         method:"POST",
         success:function (data) {
-            debugger;
             var salaryList = $.parseJSON(data);
-            $('#salaryTable').DataTable({
+            table= $('#salaryTable').DataTable({
                 data:salaryList,
                 columns:[
                     { data: 'date' },
@@ -46,6 +44,7 @@ function loadSalaryData() {
                     { data: 'tip' }
                 ]
             });
+            table.draw(false);
         }
     });
 }

@@ -27,7 +27,6 @@ function loadCompanyData() {
     });
 }
 
-
 function addSingleSalary() {
      var title = "单条新增工资";
      var param = $("#add_single_salary_form").serializeObject();
@@ -51,8 +50,6 @@ function addSingleSalary() {
          },
          dataType: 'json'
      });
-
-
 }
 
 

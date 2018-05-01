@@ -1,10 +1,4 @@
-<%@ page import="com.graduate.laborManager.pub.bean.Staff" %><%--
-  Created by IntelliJ IDEA.
-  User: hahaha
-  Date: 2018/4/23
-  Time: 1:04
-  To change this template use File | Settings | File Templates.
---%>
+<%@ page import="com.graduate.laborManager.pub.bean.Staff" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -49,14 +43,14 @@
 </section>
 
 <!-- company -->
-<section id="company" class="main style2  dark fullscreen">
+<section id="company" class="main style2 right dark fullscreen">
     <div class="content box style1">
         <header>
             <h4 id="companyNameShow">您还未加入任何公司</h4>
         </header>
         <p id="introductionShow">您还未加入任何公司</p>
-        <a href="#deal" class="button style2 down anchored">Next</a>
     </div>
+    <a href="#deal" class="button style2 down anchored">Next</a>
 </section>
 
 <!-- deal -->
@@ -65,21 +59,19 @@
         <header>
             <h4 >协议</h4>
         </header>
-        <label id="agreementTitle">协议1</label>
-        <label id="agreementContent">协议2</label>
-        <label id="">协议3</label>
-        <label>协议4</label>
+        <label id="agreementTitle">暂无协议</label>
+        <label id="agreementContent">暂无协议</label>
     </div>
     <a href="#salary" class="button style2 down anchored">Next</a>
 </section>
 
-<!-- person -->
-<section id="salary" class="main style2 right dark fullscreen">
+<!-- salary -->
+<section id="salary" class="main style2 dark fullscreen">
     <div class="content box style2">
         <header>
             <h4>工资</h4>
         </header>
-            <table id="salaryTable" class="table table-hover">
+            <table id="salaryTable" class="table table-hover ">
                 <thead>
                 <tr>
                     <th>日期</th>
@@ -108,7 +100,6 @@
 </footer>
 
 <!-- Scripts -->
-<script src="<%=contextPath%>/resources/js/user/jquery.min.js"></script>
 <script src="<%=contextPath%>/resources/js/user/jquery.poptrox.min.js"></script>
 <script src="<%=contextPath%>/resources/js/user/jquery.scrolly.min.js"></script>
 <script src="<%=contextPath%>/resources/js/user/jquery.scrollex.min.js"></script>

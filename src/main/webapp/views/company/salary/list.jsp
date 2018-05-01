@@ -86,7 +86,7 @@
                         <input type="text" class="form-control" id="phone" name="phone">
                     </div>
                     <div class="form-group">
-                        <label for="date" class="col-form-label">日期:</label>
+                        <label for="date" class="col-form-label" placeholder="yyyy-mm-dd">日期:</label>
                         <input type="text" class="form-control" id="date" name="date">
                     </div>
                     <div class="form-group">
@@ -108,37 +108,38 @@
 </div>
 
 <script src="<%=contextPath%>/scripts/company/salary/list.js"></script>
-</body>
-
 <script type="text/javascript">
     $(function () {
-    $('#addSalary').click(function () {
-        var title = "批量新增工资";
-        var file = document.add_salary_form.file.files[0];
-        var fm = new FormData();
-        fm.append('file', file);
-        $.ajax(
-            {
-                url: contextPath+"/salary/addSalaryByFile",
-                type: 'POST',
-                data: fm,
-                contentType: false, //禁止设置请求类型
-                processData: false, //禁止jquery对DAta数据的处理,默认会处理
-                //禁止的原因是,FormData已经帮我们做了处理
-                success: function (result) {
-                    //测试是否成功
-                    //但需要你后端有返回值
-                    $('#addModal').modal('hide');
-                    if(data==='0'){
-                        showAlertModal(title,'加入成功',true);
-                        loadCompanyData();
-                    }else{
-                        showAlertModal(title,'产生错误',false);
+        $('#addSalary').click(function () {
+            var title = "批量新增工资";
+            var file = document.add_salary_form.file.files[0];
+            var fm = new FormData();
+            fm.append('file', file);
+            $.ajax(
+                {
+                    url: contextPath+"/salary/addSalaryByFile",
+                    type: 'POST',
+                    data: fm,
+                    contentType: false, //禁止设置请求类型
+                    processData: false, //禁止jquery对DAta数据的处理,默认会处理
+                    //禁止的原因是,FormData已经帮我们做了处理
+                    success: function (result) {
+                        //测试是否成功
+                        //但需要你后端有返回值
+                        $('#addModal').modal('hide');
+                        if(data==='0'){
+                            showAlertModal(title,'加入成功',true);
+                            loadCompanyData();
+                        }else{
+                            showAlertModal(title,'产生错误',false);
+                        }
                     }
                 }
-            }
-        );
-    });
+            );
+        });
     });
 </script>
+</body>
+
+
 </html>

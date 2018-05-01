@@ -3,7 +3,7 @@ $(document).ready(function() {
     agreeTable = null;
     loadCompanyData();
     loadAlarmData();
-    initDetailModal()
+    initDetailModal();
 });
 
 function loadCompanyData() {
@@ -59,7 +59,6 @@ function loadAlarmData() {
     });
 }
 
-
 function initDetailModal() {
     $('#detialModal').on('show.bs.modal', function (event) {
         var trigger = $(event.relatedTarget);
@@ -68,8 +67,7 @@ function initDetailModal() {
         var modal = $(this);
         modal.find('.modal-title').text("标题:"+title);
         modal.find('.modal-body').text("内容:"+content);
-
-    })
+    });
 }
 
 
