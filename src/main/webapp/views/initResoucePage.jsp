@@ -15,7 +15,7 @@
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/bootstrap/bootstrap-table.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/bootstrap/bootstrap-reboot.min.css" />
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/bootstrap/bootstrap-grid.min.css" />
-
+    <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/main/main.css" />
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
@@ -48,8 +48,10 @@
     <!-- 顶部进度条 -->
     <script src="<%=contextPath%>/resources/js/plugins/pace.min.js"></script>
     <!-- 表格 -->
-    <script type="text/javascript" src="<%=contextPath%>/resources/js/plugins/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" src="<%=contextPath%>/resources/js/plugins/dataTables.bootstrap.min.js"></script>
+    <%--<script type="text/javascript" src="<%=contextPath%>/resources/js/plugins/jquery.dataTables.min.js"></script>--%>
+    <%--<script type="text/javascript" src="<%=contextPath%>/resources/js/plugins/dataTables.bootstrap.min.js"></script>--%>
+
+    <script type="text/javascript" src="<%=contextPath%>/resources/js/plugins/datatables.min.js"></script>
 
     <script type="text/javascript" src="<%=contextPath%>/resources/js/plugins/jquery.json.min.js"></script>
 
