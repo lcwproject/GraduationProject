@@ -7,12 +7,7 @@ import com.graduate.laborManager.pub.bean.Staff;
 
 import java.util.List;
 
-/**
- * @project: laborManager
- * @description: here to type description
- * @author: Dustin
- * @time: 2018/4/26 15:33
- */
+
 
 public interface IAgreementService {
 

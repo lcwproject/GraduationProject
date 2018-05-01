@@ -89,6 +89,10 @@
                             <input type="text" class="form-control" id="email" name="email">
                         </div>
                         <div class="form-group">
+                            <label for="password" class="col-form-label">登录密码</label>
+                            <input type="password" class="form-control" id="password" name="password">
+                        </div>
+                        <div class="form-group">
                             <label for="introduction" class="col-form-label">公司介绍:</label>
                             <textarea  type="text" class="form-control" id="introduction" name="introduction" ></textarea>
                         </div>

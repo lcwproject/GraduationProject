@@ -33,7 +33,7 @@ public class SalaryView {
 
     public void setDate(Date date) {
         this.date = date;
-        this.dateToShow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date);
+        this.dateToShow = new SimpleDateFormat("yyyy-MM-dd").format(date);
     }
 
     public Integer getSalary() {

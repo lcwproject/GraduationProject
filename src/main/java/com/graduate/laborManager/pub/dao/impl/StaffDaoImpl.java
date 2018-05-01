@@ -9,12 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @project: laborManager
- * @description: here to type description
- * @author: Dustin
- * @time: 2018/4/26 12:56
- */
 
 @Repository
 public class StaffDaoImpl extends BaseDaoImpl<Staff> implements IStaffDao {

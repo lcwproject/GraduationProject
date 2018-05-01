@@ -18,12 +18,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * @project: laborManager
- * @description: here to type description
- * @author: Dustin
- * @time: 2018/4/21 16:00
- */
 
 @Controller
 @SessionAttributes(value={"currentStaff","currentCompany"},types={Staff.class,Company.class})

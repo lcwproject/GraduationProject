@@ -127,7 +127,7 @@
                         //测试是否成功
                         //但需要你后端有返回值
                         $('#addModal').modal('hide');
-                        if(data==='0'){
+                        if(result==='0'){
                             showAlertModal(title,'加入成功',true);
                             loadCompanyData();
                         }else{

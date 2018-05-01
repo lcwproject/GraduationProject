@@ -2,7 +2,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>首页</title>
+    <title>用户首页</title>
     <%@ include file="../initResoucePage.jsp"%>
     <link rel="stylesheet" type="text/css"  href="<%=contextPath%>/resources/css/user/main.css" />
 </head>

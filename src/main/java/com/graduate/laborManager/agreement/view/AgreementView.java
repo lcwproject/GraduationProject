@@ -21,7 +21,7 @@ public class AgreementView {
 
     public void setStartTime(Timestamp startTime) {
         this.startTime = startTime;
-        this.startTimeToShow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(startTime);
+        this.startTimeToShow = new SimpleDateFormat("yyyy-MM-dd").format(startTime);
     }
 
     public Timestamp getEndTime() {
@@ -30,7 +30,7 @@ public class AgreementView {
 
     public void setEndTime(Timestamp endTime) {
         this.endTime = endTime;
-        this.endTimeToShow = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(endTime);
+        this.endTimeToShow = new SimpleDateFormat("yyyy-MM-dd").format(endTime);
     }
 
     public String getAgreementId() {

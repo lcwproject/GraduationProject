@@ -10,7 +10,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>注册登录</title>
+    <title>登录</title>
     <%@ include file="initResoucePage.jsp"%>
     <link rel="stylesheet" type="text/css"  href="<%=contextPath%>/resources/css/user/mainrl.css" />
     <%
@@ -45,15 +45,11 @@
             <h1>Welcome</h1>
             <nav>
                 <ul>
-                    <li>
-                        <a href="#" class="icon fa-edit" data-toggle="modal" data-target="#userRegisterModal"></a>
-                    </li>
+
                     <li>
                         <a href="#" class="icon fa-snowflake-o" data-toggle="modal" data-target="#userLoginModal"></a>
                     </li>
-                    <li>
-                        <a href="#" class="icon fa-edit" data-toggle="modal" data-target="#companyRegisterModal"></a>
-                    </li>
+
                     <li>
                         <a href="#" class="icon fa-bullseye" data-toggle="modal" data-target="#companyLoginModal"></a>
                     </li>
@@ -63,10 +59,8 @@
                        </li>
                 </ul>
                 <ul>
-                    <li><a href="#" data-toggle="modal" data-target="#userRegisterModal">用户注册</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#userLoginModal">用户登录</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#companyRegisterModal">单位注册</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#companyLoginModal">单位登录</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#userLoginModal">用户</a></li>
+                    <li><a href="#" data-toggle="modal" data-target="#companyLoginModal">单位</a></li>
                     <li><a href="#" data-toggle="modal" data-target="#adminLoginModal">管理员</a></li>
                 </ul>
             </nav>

@@ -10,6 +10,7 @@ function loadCompanyData() {
         method:"POST",
         success:function (data) {
             var dataSource = $.parseJSON(data);
+
             if(table!==null){
                 table.destroy();
             }

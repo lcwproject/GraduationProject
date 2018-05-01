@@ -19,7 +19,7 @@
     <!-- Font-icon css-->
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 </head>
-<body class="app sidebar-mini rtl">
+<body>
 
     <!-- alertModal -->
     <div class="modal fade" id="alertModal" tabindex="-1" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">

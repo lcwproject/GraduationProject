@@ -65,8 +65,8 @@ function initDetailModal() {
         var title = trigger.data('detialtitle');
         var content = trigger.data('detialcontent');
         var modal = $(this);
-        modal.find('.modal-title').text("标题:"+title);
-        modal.find('.modal-body').text("内容:"+content);
+        modal.find('.modal-title').text(title);
+        modal.find('.modal-body').text(content);
     });
 }
 

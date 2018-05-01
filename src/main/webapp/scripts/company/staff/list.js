@@ -28,7 +28,6 @@ function loadStaffData() {
                     }
                 ]
             });
-            table.draw(false);
         }
     });
 }

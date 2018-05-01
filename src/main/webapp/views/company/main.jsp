@@ -8,7 +8,7 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>首页</title>
+    <title>公司首页</title>
     <%@ include file="../initResoucePage.jsp"%>
     <!-- Main CSS-->
     <link rel="stylesheet" type="text/css" href="<%=contextPath%>/resources/css/main/main.css">
