@@ -11,12 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * @project: laborManager
- * @description: here to type description
- * @author: Dustin
- * @time: 2018/4/26 18:35
- */
 
 @Service
 public class AdminServiceImpl implements IAdminService {

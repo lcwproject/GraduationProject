@@ -10,13 +10,6 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 import org.springframework.web.servlet.ModelAndView;
 
-/**
- * @project: laborManager
- * @description: here to type description
- * @author: Dustin
- * @time: 2018/4/26 18:34
- */
-
 @Controller
 @SessionAttributes(value={"admin"},types={Admin.class})
 @RequestMapping("admin")

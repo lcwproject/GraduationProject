@@ -17,12 +17,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * @project: laborManager
- * @description: here to type description
- * @author: Dustin
- * @time: 2018/4/21 16:00
- */
+
 
 @Controller
 @SessionAttributes(value={"currentStaff","currentCompany","admin"},types={Staff.class,Company.class, Admin.class})

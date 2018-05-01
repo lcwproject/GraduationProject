@@ -8,12 +8,7 @@ import com.graduate.laborManager.salary.view.SalaryView;
 import java.io.File;
 import java.util.List;
 
-/**
- * @project: laborManager
- * @description: here to type description
- * @author: Dustin
- * @time: 2018/4/26 15:43
- */
+
 
 public interface ISalaryService {
 
